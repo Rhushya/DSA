@@ -21,13 +21,14 @@ html.light {
   --primary-hover: #E54530;
   --background: #FAFAFA;
   --background-secondary: #F0F0F0;
-  --sidebar-bg: #F5F5F5;
+  --sidebar-bg: #FFFFFF;
   --card-bg: #FFFFFF;
   --border: #E5E5E5;
-  --text-primary: #171717;
-  --text-secondary: #525252;
-  --text-muted: #A3A3A3;
-  --code-bg: #1E1E1E;
+  --text-primary: #0A0A0A;
+  --text-secondary: #3D3D3D;
+  --text-muted: #6B6B6B;
+  --code-bg: #F5F5F5;
+  --code-text: #1F2937;
 }
 
 * {
@@ -549,4 +550,90 @@ pre,
 code,
 .hljs {
   transition: none !important;
+}
+
+/* Light Mode Syntax Highlighting */
+html.light .hljs {
+  background: #F5F5F5 !important;
+  color: #1F2937;
+}
+
+html.light .content-area pre {
+  background: #F5F5F5;
+  color: #1F2937;
+  border-color: #E5E5E5;
+}
+
+html.light .hljs-keyword,
+html.light .hljs-built_in,
+html.light .hljs-type {
+  color: #8B5CF6;
+}
+
+html.light .hljs-string,
+html.light .hljs-template-variable {
+  color: #059669;
+}
+
+html.light .hljs-number {
+  color: #D97706;
+}
+
+html.light .hljs-comment {
+  color: #6B7280;
+  font-style: italic;
+}
+
+html.light .hljs-function,
+html.light .hljs-title.function_ {
+  color: #2563EB;
+}
+
+html.light .hljs-title.class_ {
+  color: #0891B2;
+}
+
+html.light .hljs-variable,
+html.light .hljs-params {
+  color: #0F172A;
+}
+
+html.light .hljs-operator {
+  color: #334155;
+}
+
+html.light .hljs-literal {
+  color: #7C3AED;
+}
+
+html.light .hljs-attr {
+  color: #DC2626;
+}
+
+html.light .hljs-decorator,
+html.light .hljs-meta {
+  color: #B45309;
+}
+
+html.light .hljs-variable.language_ {
+  color: #7C3AED;
+}
+
+html.light .hljs-punctuation {
+  color: #334155;
+}
+
+html.light .hljs-property {
+  color: #0F172A;
+}
+
+/* Light mode sidebar - bolder text */
+html.light .sidebar-link {
+  color: #1F2937;
+  font-weight: 500;
+}
+
+html.light .sidebar-section-title {
+  color: #374151;
+  font-weight: 700;
 }
