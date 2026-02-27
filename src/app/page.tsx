@@ -1,129 +1,144 @@
 import Link from 'next/link';
-import { Code, Network, Cpu, Database, ArrowRight, BookOpen, Zap, Target, GraduationCap } from 'lucide-react';
+import {
+    Code, Network, Cpu, Database, ArrowRight, BookOpen, Zap, Target,
+    GraduationCap, CheckCircle2, Users, FileText, ChevronRight,
+    Sparkles, Clock, Shield, TrendingUp
+} from 'lucide-react';
 
 const subjects = [
     {
         title: 'Data Structures & Algorithms',
-        description: 'Arrays, Linked Lists, Trees, Graphs, Sorting, DP, Backtracking and more',
+        description: 'Master arrays, linked lists, trees, graphs, sorting, dynamic programming, backtracking and 50+ coding patterns.',
         href: '/dsa',
         icon: Code,
         gradient: 'linear-gradient(135deg, var(--accent), hsl(0 70% 42%))',
         shadowColor: 'var(--accent-glow)',
+        topics: '12 Chapters',
+        highlight: 'Most Popular',
     },
     {
         title: 'Computer Networking',
-        description: 'OSI Model, TCP/IP, Protocols, Network Security',
+        description: 'OSI & TCP/IP models, HTTP, DNS, routing protocols, network security — everything you need for interviews.',
         href: '/cn',
         icon: Network,
         gradient: 'linear-gradient(135deg, var(--secondary), hsl(220 90% 50%))',
         shadowColor: 'hsl(210 80% 62% / 0.3)',
+        topics: '8 Chapters',
+        highlight: null,
     },
     {
         title: 'Operating Systems',
-        description: 'Process Management, Memory, Deadlocks, File Systems',
+        description: 'Process management, memory, deadlocks, file systems, scheduling algorithms — all with clear examples.',
         href: '/os',
         icon: Cpu,
         gradient: 'linear-gradient(135deg, var(--primary), hsl(210 80% 50%))',
         shadowColor: 'hsl(220 90% 56% / 0.3)',
+        topics: '10 Chapters',
+        highlight: null,
     },
     {
         title: 'SQL & Databases',
-        description: 'Queries, Joins, Aggregations, Window Functions, Database Design',
+        description: 'From basic queries to window functions, CTEs, normalization, indexing — with ready-to-run examples.',
         href: '/sql',
         icon: Database,
         gradient: 'linear-gradient(135deg, var(--sql-color), hsl(0 60% 38%))',
         shadowColor: 'hsl(0 70% 48% / 0.3)',
+        topics: '9 Chapters',
+        highlight: null,
     },
 ];
 
-const features = [
-    { icon: BookOpen, title: 'Complete Notes', desc: 'Comprehensive coverage of all topics' },
-    { icon: Zap, title: 'Code Examples', desc: 'Python code with syntax highlighting' },
-    { icon: Target, title: 'Interview Ready', desc: 'Focused on tech placement prep' },
-    { icon: GraduationCap, title: 'Well Structured', desc: 'Organized for efficient learning' },
+const stats = [
+    { value: '40+', label: 'In-Depth Topics' },
+    { value: '200+', label: 'Code Examples' },
+    { value: '4', label: 'Core Subjects' },
+    { value: '100%', label: 'Free & Open' },
+];
+
+const steps = [
+    { step: '01', title: 'Pick a Subject', desc: 'Choose from DSA, Computer Networks, Operating Systems, or SQL to begin.', icon: Target },
+    { step: '02', title: 'Study the Notes', desc: 'Read concise, interview-focused notes with syntax-highlighted Python code.', icon: BookOpen },
+    { step: '03', title: 'Ace Your Interview', desc: 'Apply what you learned. Each topic is designed for real placement questions.', icon: TrendingUp },
+];
+
+const benefits = [
+    { icon: Zap, title: 'Interview-First Approach', desc: 'Every topic is written with placement interviews in mind — no fluff, just what matters.' },
+    { icon: Code, title: 'Python Code Examples', desc: 'All algorithms come with clean, copy-ready Python implementations with syntax highlighting.' },
+    { icon: FileText, title: 'Downloadable PDFs', desc: 'Get offline-ready PDF notes for Computer Networks, OS, and SQL to study anywhere.' },
+    { icon: Shield, title: 'Structured & Reliable', desc: 'Topics follow a logical order — from fundamentals to advanced concepts, no jumping around.' },
+    { icon: Clock, title: 'Save Hours of Prep', desc: 'Stop searching across 10 websites. Everything you need is organized in one place.' },
+    { icon: Sparkles, title: 'Always Up to Date', desc: 'Content is regularly updated to match the latest interview trends and patterns.' },
+];
+
+const faqs = [
+    { q: 'Is StudyNotes completely free?', a: 'Yes — all notes, code examples, and PDF downloads are 100% free. No sign-ups, no paywalls.' },
+    { q: 'What subjects are covered?', a: 'We cover four core CS subjects: Data Structures & Algorithms, Computer Networking, Operating Systems, and SQL & Databases.' },
+    { q: 'Are the notes good for placements?', a: 'Absolutely. Every topic is written with tech placements and coding interviews in mind, covering the most frequently asked concepts.' },
+    { q: 'What programming language are code examples in?', a: 'All code examples are written in Python with proper syntax highlighting for easy reading and understanding.' },
+    { q: 'Can I download the notes as PDF?', a: 'Yes. Computer Networks, Operating Systems, and SQL notes are available as downloadable PDFs for offline study.' },
 ];
 
 export default function Home() {
     return (
-        <div style={{ minHeight: 'calc(100vh - 64px)' }}>
-            {/* Hero Section */}
-            <section
-                className="hero-section"
-                style={{
-                    padding: '5rem 2rem 4rem',
-                    textAlign: 'center',
-                    maxWidth: '920px',
-                    margin: '0 auto',
-                }}
-            >
-                <div className="animate-fade-in-up">
-                    <div className="hero-badge" style={{ marginBottom: '1.75rem' }}>
-                        <span className="hero-badge-dot" />
-                        <span>Complete Study Notes for Tech Interviews</span>
+        <div className="landing-page">
+            {/* ─── HERO ─── */}
+            <section className="hero-section">
+                <div className="hero-inner">
+                    <div className="animate-fade-in-up">
+                        <div className="hero-badge">
+                            <span className="hero-badge-dot" />
+                            <span>Free &amp; Open Source Study Material</span>
+                        </div>
                     </div>
-                </div>
 
-                <h1
-                    className="hero-title animate-fade-in-up delay-1"
-                    style={{
-                        fontSize: '3.75rem',
-                        fontWeight: 800,
-                        color: 'var(--text-primary)',
-                        marginBottom: '1.5rem',
-                        lineHeight: 1.1,
-                        letterSpacing: '-0.035em',
-                    }}
-                >
-                    Master Your Tech
-                    <br />
-                    <span className="gradient-text">Interview Prep</span>
-                </h1>
+                    <h1 className="hero-title animate-fade-in-up delay-1">
+                        Your One-Stop
+                        <br />
+                        <span className="gradient-text">CS Interview Prep</span>
+                    </h1>
 
-                <p
-                    className="hero-description animate-fade-in-up delay-2"
-                    style={{
-                        fontSize: '1.2rem',
-                        color: 'var(--text-secondary)',
-                        marginBottom: '2.5rem',
-                        lineHeight: 1.7,
-                        maxWidth: '620px',
-                        margin: '0 auto 2.5rem',
-                    }}
-                >
-                    Comprehensive study notes covering DSA, Computer Networking, Operating Systems,
-                    and SQL. All code examples in Python with syntax highlighting.
-                </p>
+                    <p className="hero-description animate-fade-in-up delay-2">
+                        Free, structured study notes for <strong>DSA</strong>, <strong>Computer Networks</strong>,{' '}
+                        <strong>Operating Systems</strong> &amp; <strong>SQL</strong> — built to help you crack your next
+                        tech interview. All code in Python.
+                    </p>
 
-                <div className="animate-fade-in-up delay-3" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <Link href="/dsa" className="btn-primary" style={{ padding: '0.875rem 2.25rem', fontSize: '1rem' }}>
-                        Start Learning <ArrowRight className="w-5 h-5" />
-                    </Link>
-                    <Link href="/cn" className="btn-secondary" style={{ padding: '0.875rem 2.25rem', fontSize: '1rem' }}>
-                        Browse Subjects
-                    </Link>
+                    <div className="hero-cta-row animate-fade-in-up delay-3">
+                        <Link href="/dsa" className="btn-primary btn-lg">
+                            Start with DSA <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <Link href="#subjects" className="btn-secondary btn-lg">
+                            Browse All Subjects
+                        </Link>
+                    </div>
+
+                    <div className="hero-trust animate-fade-in-up delay-4">
+                        <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--success)' }} />
+                        <span>No sign-up required</span>
+                        <span className="hero-trust-sep">·</span>
+                        <span>100% free</span>
+                        <span className="hero-trust-sep">·</span>
+                        <span>Open source on GitHub</span>
+                    </div>
                 </div>
             </section>
 
-            {/* Feature Strip */}
-            <div className="feature-strip animate-fade-in delay-4">
-                {features.map((f, i) => (
-                    <div key={i} className="feature-item">
-                        <div className="feature-icon">
-                            <f.icon className="w-[18px] h-[18px]" />
-                        </div>
-                        <div>
-                            <div style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '14px' }}>{f.title}</div>
-                            <div style={{ color: 'var(--text-muted)', fontSize: '12.5px' }}>{f.desc}</div>
-                        </div>
+            {/* ─── STATS BAR ─── */}
+            <section className="stats-bar animate-fade-in delay-4">
+                {stats.map((s, i) => (
+                    <div key={i} className="stat-item">
+                        <span className="stat-value">{s.value}</span>
+                        <span className="stat-label">{s.label}</span>
                     </div>
                 ))}
-            </div>
+            </section>
 
-            {/* Subject Cards */}
-            <section style={{ padding: '4rem 2rem 5rem', maxWidth: '1200px', margin: '0 auto' }}>
-                <div className="section-label animate-fade-in-up delay-4">
-                    <h2>Choose a Subject</h2>
-                    <p>Select a topic to start studying</p>
+            {/* ─── SUBJECTS ─── */}
+            <section id="subjects" className="section">
+                <div className="section-header animate-fade-in-up">
+                    <span className="section-tag">Subjects</span>
+                    <h2 className="section-title">Everything You Need, In One Place</h2>
+                    <p className="section-subtitle">Four core CS subjects — curated, concise, and interview-ready.</p>
                 </div>
 
                 <div className="subject-grid">
@@ -131,14 +146,10 @@ export default function Home() {
                         <Link
                             key={subject.href}
                             href={subject.href}
-                            className={`card animate-fade-in-up delay-${Math.min(idx + 3, 6)}`}
-                            style={{
-                                display: 'block',
-                                textDecoration: 'none',
-                                cursor: 'pointer',
-                            }}
+                            className={`subject-card animate-fade-in-up delay-${Math.min(idx + 2, 6)}`}
                         >
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                            {subject.highlight && <span className="subject-highlight">{subject.highlight}</span>}
+                            <div className="subject-card-top">
                                 <div
                                     className="icon-box"
                                     style={{
@@ -148,51 +159,111 @@ export default function Home() {
                                 >
                                     <subject.icon className="w-6 h-6" style={{ color: 'white' }} />
                                 </div>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <h3 style={{
-                                        fontSize: '1.1rem',
-                                        fontWeight: 650,
-                                        color: 'var(--text-primary)',
-                                        marginBottom: '0.4rem',
-                                        letterSpacing: '-0.01em',
-                                    }}>
-                                        {subject.title}
-                                    </h3>
-                                    <p style={{
-                                        fontSize: '13.5px',
-                                        color: 'var(--text-secondary)',
-                                        margin: 0,
-                                        lineHeight: 1.6,
-                                    }}>
-                                        {subject.description}
-                                    </p>
-                                </div>
-                                <ArrowRight
-                                    className="w-5 h-5"
-                                    style={{
-                                        color: 'var(--text-muted)',
-                                        flexShrink: 0,
-                                        marginTop: '2px',
-                                        transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-                                    }}
-                                />
+                                <span className="subject-topics">{subject.topics}</span>
                             </div>
+                            <h3 className="subject-card-title">{subject.title}</h3>
+                            <p className="subject-card-desc">{subject.description}</p>
+                            <span className="subject-card-link">
+                                Start Learning <ChevronRight className="w-4 h-4" />
+                            </span>
                         </Link>
                     ))}
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer
-                style={{
-                    textAlign: 'center',
-                    padding: '2rem',
-                    borderTop: '1px solid var(--border)',
-                    color: 'var(--text-muted)',
-                    fontSize: '13px',
-                }}
-            >
-                <p>Built for efficient learning. Study smart, not hard.</p>
+            {/* ─── HOW IT WORKS ─── */}
+            <section className="section section-alt">
+                <div className="section-header animate-fade-in-up">
+                    <span className="section-tag">How It Works</span>
+                    <h2 className="section-title">Three Steps to Interview Confidence</h2>
+                    <p className="section-subtitle">No complicated setup. Just open, read, and learn.</p>
+                </div>
+
+                <div className="steps-grid">
+                    {steps.map((s, i) => (
+                        <div key={i} className={`step-card animate-fade-in-up delay-${i + 2}`}>
+                            <span className="step-number">{s.step}</span>
+                            <div className="step-icon-wrap">
+                                <s.icon className="w-6 h-6" />
+                            </div>
+                            <h3 className="step-title">{s.title}</h3>
+                            <p className="step-desc">{s.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ─── BENEFITS ─── */}
+            <section className="section">
+                <div className="section-header animate-fade-in-up">
+                    <span className="section-tag">Why StudyNotes</span>
+                    <h2 className="section-title">Built for Students Who Mean Business</h2>
+                    <p className="section-subtitle">Every feature exists because it helps you prepare faster and smarter.</p>
+                </div>
+
+                <div className="benefits-grid">
+                    {benefits.map((b, i) => (
+                        <div key={i} className={`benefit-card animate-fade-in-up delay-${Math.min(i + 1, 6)}`}>
+                            <div className="benefit-icon">
+                                <b.icon className="w-5 h-5" />
+                            </div>
+                            <h3 className="benefit-title">{b.title}</h3>
+                            <p className="benefit-desc">{b.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ─── FAQ ─── */}
+            <section className="section section-alt">
+                <div className="section-header animate-fade-in-up">
+                    <span className="section-tag">FAQ</span>
+                    <h2 className="section-title">Frequently Asked Questions</h2>
+                    <p className="section-subtitle">Quick answers to things people usually ask.</p>
+                </div>
+
+                <div className="faq-list">
+                    {faqs.map((faq, i) => (
+                        <details key={i} className={`faq-item animate-fade-in-up delay-${Math.min(i + 1, 6)}`}>
+                            <summary className="faq-question">{faq.q}</summary>
+                            <p className="faq-answer">{faq.a}</p>
+                        </details>
+                    ))}
+                </div>
+            </section>
+
+            {/* ─── FINAL CTA ─── */}
+            <section className="cta-banner">
+                <div className="cta-inner animate-fade-in-up">
+                    <GraduationCap className="w-10 h-10" style={{ color: 'white', opacity: 0.9 }} />
+                    <h2 className="cta-title">Ready to Start Preparing?</h2>
+                    <p className="cta-desc">
+                        Join thousands of students using StudyNotes to crack their tech interviews.
+                        Pick a subject and start now — it&apos;s completely free.
+                    </p>
+                    <div className="cta-buttons">
+                        <Link href="/dsa" className="btn-primary btn-lg btn-white">
+                            Start Learning Now <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── FOOTER ─── */}
+            <footer className="landing-footer">
+                <div className="footer-inner">
+                    <div className="footer-brand">
+                        <div className="logo-mark"><span>S</span></div>
+                        <span className="logo-text">StudyNotes</span>
+                    </div>
+                    <p className="footer-copy">Free CS interview prep notes. Built with Next.js. Open-sourced on GitHub.</p>
+                    <div className="footer-links">
+                        <Link href="/dsa">DSA</Link>
+                        <Link href="/cn">Networks</Link>
+                        <Link href="/os">OS</Link>
+                        <Link href="/sql">SQL</Link>
+                    </div>
+                </div>
             </footer>
         </div>
     );

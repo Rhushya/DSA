@@ -1,6 +1,13 @@
 import LeftSidebar from '@/components/LeftSidebar';
 import PDFDownload from '@/components/PDFDownload';
-import { Network, Wifi, Globe, Lock } from 'lucide-react';
+import { Network, Wifi, Globe, Lock, ArrowDown } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Computer Networking Notes — OSI, TCP/IP, Protocols | StudyNotes',
+    description:
+        'Free computer networking study notes covering the OSI model, TCP/IP, HTTP, DNS, routing protocols and network security. Interview-ready.',
+};
 
 const topics = [
     { icon: Network, title: 'OSI Model', desc: '7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application' },
@@ -15,10 +22,20 @@ export default function CNPage() {
             <LeftSidebar />
             <main className="main-content">
                 <div className="content-area">
-                    <h1 className="animate-fade-in-up">Computer Networking</h1>
-                    <p className="animate-fade-in-up delay-1">Complete study notes on Computer Networking covering OSI model, TCP/IP, networking protocols, and essential concepts for tech placements.</p>
+                    <div className="page-hero animate-fade-in-up">
+                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, var(--cn-color), hsl(220 90% 50%))' }}>
+                            <Network className="w-7 h-7" style={{ color: 'white' }} />
+                        </div>
+                        <div>
+                            <h1 style={{ marginBottom: '0.5rem' }}>Computer Networking</h1>
+                            <p className="page-hero-desc">Complete study notes on the OSI model, TCP/IP, networking protocols, and essential concepts for tech placement interviews.</p>
+                        </div>
+                    </div>
 
-                    <h2>Download Notes</h2>
+                    <h2 className="animate-fade-in-up delay-1">
+                        <ArrowDown className="w-5 h-5 inline-block mr-2" style={{ color: 'var(--primary)' }} />
+                        Download Notes
+                    </h2>
                     <PDFDownload
                         title="Computer Networking Notes"
                         description="Comprehensive notes covering OSI Model, TCP/IP, HTTP, DNS, Routing protocols, and more."
@@ -26,7 +43,7 @@ export default function CNPage() {
                         href="/files/cn-notes.pdf"
                     />
 
-                    <h2>Key Topics</h2>
+                    <h2 className="animate-fade-in-up delay-2">Key Topics</h2>
                     <div style={{ display: 'grid', gap: '0.75rem' }}>
                         {topics.map((topic, i) => (
                             <div key={i} className={`topic-card animate-fade-in-up delay-${Math.min(i + 2, 6)}`}>

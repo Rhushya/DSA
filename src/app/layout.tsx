@@ -15,9 +15,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "StudyNotes - DSA, CN, OS, SQL",
-    description: "Complete study notes for Data Structures & Algorithms, Computer Networking, Operating Systems, and SQL.",
-    icons: { icon: '/favicon.svg' },
+    title: "StudyNotes — Free DSA, OS, CN & SQL Interview Notes",
+    description:
+        "Free, structured study notes for Data Structures & Algorithms, Computer Networking, Operating Systems, and SQL. Python code examples, downloadable PDFs, and interview-focused content.",
+    keywords: [
+        "DSA notes",
+        "study notes",
+        "interview prep",
+        "data structures",
+        "algorithms",
+        "computer networking notes",
+        "operating systems notes",
+        "SQL notes",
+        "tech interview",
+        "placement preparation",
+    ],
+    authors: [{ name: "StudyNotes" }],
+    openGraph: {
+        title: "StudyNotes — Free CS Interview Prep Notes",
+        description:
+            "Master DSA, Computer Networks, OS & SQL with free, interview-focused study notes. Python code examples & downloadable PDFs.",
+        type: "website",
+        locale: "en_US",
+        siteName: "StudyNotes",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "StudyNotes — Free CS Interview Prep Notes",
+        description:
+            "Master DSA, Computer Networks, OS & SQL with free, interview-focused study notes.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({

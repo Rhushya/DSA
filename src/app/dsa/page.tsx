@@ -2,6 +2,14 @@ import LeftSidebar from '@/components/LeftSidebar';
 import RightSidebar from '@/components/RightSidebar';
 import { getBasicContent, getAdvanceContent } from '@/lib/dsa-content';
 import MarkdownContent from '@/components/MarkdownContent';
+import { Code } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'DSA Notes — Arrays, Trees, Graphs, DP & More | StudyNotes',
+    description:
+        'Free Data Structures & Algorithms study notes with Python code examples. Covers arrays, linked lists, trees, graphs, dynamic programming, and 50+ patterns.',
+};
 
 const tocItems = [
     { id: 'arrays', title: 'Arrays' },
@@ -28,12 +36,18 @@ export default function DSAPage() {
 
             <main className="main-content">
                 <div className="content-area">
-                    <h1 id="introduction" className="animate-fade-in-up">Data Structures & Algorithms</h1>
-
-                    <p className="animate-fade-in-up delay-1">
-                        Complete study notes covering fundamental data structures, algorithms,
-                        and problem-solving patterns for tech interviews. All code examples are in Python.
-                    </p>
+                    <div className="page-hero animate-fade-in-up">
+                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, var(--accent), hsl(0 70% 42%))' }}>
+                            <Code className="w-7 h-7" style={{ color: 'white' }} />
+                        </div>
+                        <div>
+                            <h1 id="introduction" style={{ marginBottom: '0.5rem' }}>Data Structures & Algorithms</h1>
+                            <p className="page-hero-desc">
+                                Complete study notes covering fundamental data structures, algorithms,
+                                and problem-solving patterns for tech interviews. All code examples are in Python.
+                            </p>
+                        </div>
+                    </div>
 
                     <MarkdownContent content={basicContent} />
 
