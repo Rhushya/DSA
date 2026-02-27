@@ -16,8 +16,8 @@ export default function OSPage() {
             <LeftSidebar />
             <main className="main-content">
                 <div className="content-area">
-                    <h1>Operating Systems</h1>
-                    <p>In-depth study notes on Operating Systems covering process management, memory management, file systems, and essential OS concepts.</p>
+                    <h1 className="animate-fade-in-up">Operating Systems</h1>
+                    <p className="animate-fade-in-up delay-1">In-depth study notes on Operating Systems covering process management, memory management, file systems, and essential OS concepts.</p>
 
                     <h2>Download Notes</h2>
                     <PDFDownload
@@ -30,13 +30,13 @@ export default function OSPage() {
                     <h2>Key Topics</h2>
                     <div style={{ display: 'grid', gap: '0.75rem' }}>
                         {topics.map((topic, i) => (
-                            <div key={i} className="card" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FFA54E, #F55036)' }}>
-                                    <topic.icon className="w-5 h-5 text-black" />
+                            <div key={i} className={`topic-card animate-fade-in-up delay-${Math.min(i + 2, 6)}`}>
+                                <div className="icon-box-sm" style={{ background: 'linear-gradient(135deg, var(--os-color), hsl(210 80% 50%))' }}>
+                                    <topic.icon className="w-5 h-5" style={{ color: 'white' }} />
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.25rem', color: 'var(--text-primary)', marginTop: 0 }}>{topic.title}</h3>
-                                    <p style={{ margin: 0, fontSize: '14px', color: 'var(--text-secondary)' }}>{topic.desc}</p>
+                                    <p style={{ margin: 0, fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{topic.desc}</p>
                                 </div>
                             </div>
                         ))}

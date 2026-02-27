@@ -52,12 +52,8 @@ export default function Sidebar({ sections }: SidebarProps) {
     };
 
     return (
-        <aside className="sidebar">
-            <div className="mb-4 pb-3 border-b" style={{ borderColor: 'var(--border)' }}>
-                <h3 className="font-bold text-sm uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
-                    Contents
-                </h3>
-            </div>
+        <aside className="right-sidebar">
+            <div className="right-sidebar-title">Contents</div>
             <nav>
                 {sections.map((section) => {
                     // Check if it's a separator
@@ -65,10 +61,16 @@ export default function Sidebar({ sections }: SidebarProps) {
                         return (
                             <div
                                 key={section.id}
-                                className="my-4 py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider"
                                 style={{
-                                    background: 'linear-gradient(135deg, var(--primary), var(--yellow-orange))',
-                                    color: 'white'
+                                    margin: '1rem 0 0.5rem',
+                                    padding: '0.4rem 0.75rem',
+                                    borderRadius: 'var(--radius-md)',
+                                    fontSize: '11px',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.06em',
+                                    background: 'var(--gradient-primary)',
+                                    color: 'white',
                                 }}
                             >
                                 {section.title.replace(/---/g, '').trim()}

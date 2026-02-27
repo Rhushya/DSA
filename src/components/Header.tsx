@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const navItems = [
@@ -17,6 +17,7 @@ export default function Header() {
     const pathname = usePathname();
     const [isDark, setIsDark] = useState(true);
     const [mounted, setMounted] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -47,44 +48,86 @@ export default function Header() {
 
     return (
         <header>
-            <div className="h-14 px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: '#F55036' }}>
-                        <span className="text-white font-bold text-sm">S</span>
-                    </div>
-                    <span className="font-semibold text-base" style={{ color: 'var(--text-primary)' }}>
-                        StudyNotes
-                    </span>
-                </Link>
+            <div className="h-16 px-6 flex items-center justify-between max-w-[1600px] mx-auto">
+                {/* Left: Logo + Mobile Menu */}
+                <div className="flex items-center gap-3">
+                    <button
+                        className="mobile-menu-toggle"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button>
 
-                <div className="flex items-center gap-4">
-                    <nav className="flex items-center gap-1">
-                        {navItems.map((item) => {
-                            const isActive = pathname === item.href;
-                            return (
-                                <Link key={item.name} href={item.href} className={`nav-pill ${isActive ? 'active' : ''}`}>
-                                    {item.name}
-                                </Link>
-                            );
-                        })}
-                    </nav>
+                    <Link href="/" className="flex items-center gap-2.5 group">
+                        <div className="logo-mark">
+                            <span>S</span>
+                        </div>
+                        <span className="logo-text">StudyNotes</span>
+                    </Link>
+                </div>
 
+                {/* Center: Navigation */}
+                <nav className="desktop-nav flex items-center gap-1">
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={`nav-pill ${isActive ? 'active' : ''}`}
+                            >
+                                <span style={{ position: 'relative', zIndex: 1 }}>{item.name}</span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+
+                {/* Right: Theme Toggle */}
+                <div className="flex items-center gap-3">
                     {mounted && (
                         <button
                             onClick={toggleTheme}
-                            className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:scale-105"
-                            style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--border)',
-                                color: 'var(--text-secondary)'
-                            }}
+                            className="theme-toggle"
                             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                            aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                         >
                             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                         </button>
                     )}
                 </div>
             </div>
+
+            {/* Mobile Navigation Dropdown */}
+            {mobileMenuOpen && (
+                <div
+                    className="absolute top-full left-0 right-0 border-b animate-fade-in"
+                    style={{
+                        background: 'var(--glass-bg)',
+                        backdropFilter: 'var(--glass-blur)',
+                        WebkitBackdropFilter: 'var(--glass-blur)',
+                        borderColor: 'var(--border)',
+                        zIndex: 99,
+                    }}
+                >
+                    <nav className="flex flex-col p-4 gap-1">
+                        {navItems.map((item) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`nav-pill ${isActive ? 'active' : ''}`}
+                                    style={{ padding: '0.625rem 1rem' }}
+                                >
+                                    <span style={{ position: 'relative', zIndex: 1 }}>{item.name}</span>
+                                </Link>
+                            );
+                        })}
+                    </nav>
+                </div>
+            )}
         </header>
     );
 }

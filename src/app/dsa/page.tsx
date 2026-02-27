@@ -28,17 +28,17 @@ export default function DSAPage() {
 
             <main className="main-content">
                 <div className="content-area">
-                    <h1 id="introduction">Data Structures & Algorithms</h1>
+                    <h1 id="introduction" className="animate-fade-in-up">Data Structures & Algorithms</h1>
 
-                    <p>
+                    <p className="animate-fade-in-up delay-1">
                         Complete study notes covering fundamental data structures, algorithms,
                         and problem-solving patterns for tech interviews. All code examples are in Python.
                     </p>
 
                     <MarkdownContent content={basicContent} />
 
-                    <div style={{ marginTop: '4rem' }}>
-                        <h1 id="advance-dsa" style={{ color: '#F55036' }}>Advanced Topics</h1>
+                    <div className="advance-section" style={{ marginTop: '4rem' }}>
+                        <h1 id="advance-dsa" style={{ color: 'var(--accent)' }}>Advanced Topics</h1>
                         <p>Advanced algorithms and data structures including trees, graphs, and optimization techniques.</p>
                         <MarkdownContent content={advanceContent} />
                     </div>

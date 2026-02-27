@@ -1,7 +1,9 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { PanelLeftOpen } from 'lucide-react';
 
 interface SidebarSection {
     title: string;
@@ -52,10 +54,29 @@ const sections: SidebarSection[] = [
 
 export default function LeftSidebar() {
     const pathname = usePathname();
+    const [open, setOpen] = useState(false);
+
+    const closeSidebar = useCallback(() => setOpen(false), []);
+
+    // Close sidebar on route change
+    useEffect(() => {
+        closeSidebar();
+    }, [pathname, closeSidebar]);
+
+    // Lock body scroll when sidebar is open on mobile
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [open]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         if (pathname !== '/dsa') return;
         e.preventDefault();
+        closeSidebar();
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -64,23 +85,42 @@ export default function LeftSidebar() {
     };
 
     return (
-        <aside className="left-sidebar">
-            {sections.map((section) => (
-                <div key={section.title} className="sidebar-section">
-                    <div className="sidebar-section-title">{section.title}</div>
-                    {section.links.map((link) =>
-                        link.href ? (
-                            <Link key={link.id} href={link.href} className={`sidebar-link ${pathname === link.href ? 'active' : ''}`}>
-                                {link.title}
-                            </Link>
-                        ) : (
-                            <a key={link.id} href={`#${link.id}`} onClick={(e) => handleClick(e, link.id)} className="sidebar-link">
-                                {link.title}
-                            </a>
-                        )
-                    )}
-                </div>
-            ))}
-        </aside>
+        <>
+            {/* Mobile Toggle Button */}
+            <button
+                className="sidebar-mobile-toggle"
+                onClick={() => setOpen(true)}
+                aria-label="Open navigation sidebar"
+            >
+                <PanelLeftOpen className="w-5 h-5" />
+            </button>
+
+            {/* Overlay */}
+            {open && (
+                <div
+                    className={`sidebar-overlay ${open ? 'visible' : ''}`}
+                    onClick={closeSidebar}
+                />
+            )}
+
+            <aside className={`left-sidebar ${open ? 'open' : ''}`}>
+                {sections.map((section) => (
+                    <div key={section.title} className="sidebar-section">
+                        <div className="sidebar-section-title">{section.title}</div>
+                        {section.links.map((link) =>
+                            link.href ? (
+                                <Link key={link.id} href={link.href} className={`sidebar-link ${pathname === link.href ? 'active' : ''}`}>
+                                    {link.title}
+                                </Link>
+                            ) : (
+                                <a key={link.id} href={`#${link.id}`} onClick={(e) => handleClick(e, link.id)} className="sidebar-link">
+                                    {link.title}
+                                </a>
+                            )
+                        )}
+                    </div>
+                ))}
+            </aside>
+        </>
     );
 }

@@ -22,7 +22,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
     const cleanedContent = cleanContent(content);
 
     return (
-        <div className="prose prose-gray max-w-none">
+        <div className="markdown-body">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight]}
