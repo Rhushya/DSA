@@ -69,9 +69,9 @@
   --code-border: hsl(220 12% 16%);
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
-  --gradient-hero: linear-gradient(135deg, hsl(var(--primary-h) var(--primary-s) 65%), hsl(var(--accent-h) var(--accent-s) 60%));
-  --gradient-subtle: linear-gradient(135deg, var(--primary-muted), var(--accent-muted));
+  --gradient-primary: linear-gradient(135deg, hsl(220 90% 52%), hsl(210 85% 62%));
+  --gradient-hero: linear-gradient(135deg, hsl(220 90% 65%), hsl(210 85% 72%));
+  --gradient-subtle: linear-gradient(135deg, var(--primary-muted), hsl(210 80% 60% / 0.15));
   --gradient-surface: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
   --gradient-card: linear-gradient(145deg, hsl(220 14% 11%) 0%, hsl(220 14% 8%) 100%);
 
@@ -98,11 +98,11 @@
   --radius-2xl: 28px;
   --radius-full: 9999px;
 
-  /* Subject Colors - All blue/red palette */
-  --dsa-color: hsl(0 85% 55%);
+  /* Subject Colors - Blue palette */
+  --dsa-color: hsl(230 85% 58%);
   --cn-color: hsl(210 80% 62%);
   --os-color: hsl(220 90% 56%);
-  --sql-color: hsl(0 70% 48%);
+  --sql-color: hsl(215 75% 50%);
 
   /* Glass Effects */
   --glass-bg: hsl(220 14% 10% / 0.7);
@@ -156,9 +156,9 @@ html.light {
   --code-text: hsl(220 20% 12%);
   --code-border: hsl(220 16% 89%);
 
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
-  --gradient-hero: linear-gradient(135deg, hsl(var(--primary-h) var(--primary-s) 45%), hsl(var(--accent-h) var(--accent-s) 50%));
-  --gradient-subtle: linear-gradient(135deg, var(--primary-muted), var(--accent-muted));
+  --gradient-primary: linear-gradient(135deg, hsl(220 90% 48%), hsl(210 80% 55%));
+  --gradient-hero: linear-gradient(135deg, hsl(220 90% 45%), hsl(210 80% 52%));
+  --gradient-subtle: linear-gradient(135deg, var(--primary-muted), hsl(210 80% 50% / 0.1));
   --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
   --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 18% 97%));
 
@@ -175,10 +175,10 @@ html.light {
   --glass-border: hsl(220 16% 89% / 0.6);
   --glass-blur: blur(20px);
 
-  --dsa-color: hsl(0 85% 45%);
+  --dsa-color: hsl(230 85% 48%);
   --cn-color: hsl(210 75% 42%);
   --os-color: hsl(220 90% 44%);
-  --sql-color: hsl(0 70% 40%);
+  --sql-color: hsl(215 75% 42%);
 }
 
 /* ============================================================
@@ -1003,7 +1003,7 @@ header::after {
 
 .hero-cta-row {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 2rem;
@@ -1192,8 +1192,8 @@ header::after {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--accent);
-  background: var(--accent-muted);
+  color: var(--primary);
+  background: var(--primary-muted);
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
 }

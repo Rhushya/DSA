@@ -37,7 +37,7 @@ export default function DSAPage() {
             <main className="main-content">
                 <div className="content-area">
                     <div className="page-hero animate-fade-in-up">
-                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, var(--accent), hsl(0 70% 42%))' }}>
+                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, hsl(220 90% 50%), hsl(230 85% 42%))' }}>
                             <Code className="w-7 h-7" style={{ color: 'white' }} />
                         </div>
                         <div>
@@ -52,7 +52,7 @@ export default function DSAPage() {
                     <MarkdownContent content={basicContent} />
 
                     <div className="advance-section" style={{ marginTop: '4rem' }}>
-                        <h1 id="advance-dsa" style={{ color: 'var(--accent)' }}>Advanced Topics</h1>
+                        <h1 id="advance-dsa" style={{ color: 'var(--primary)' }}>Advanced Topics</h1>
                         <p>Advanced algorithms and data structures including trees, graphs, and optimization techniques.</p>
                         <MarkdownContent content={advanceContent} />
                     </div>

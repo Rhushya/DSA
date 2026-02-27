@@ -34,8 +34,8 @@ const subjects = [
         description: 'Master arrays, linked lists, trees, graphs, sorting, dynamic programming, backtracking and 50+ coding patterns.',
         href: '/dsa',
         icon: Code,
-        gradient: 'linear-gradient(135deg, var(--accent), hsl(0 70% 42%))',
-        shadowColor: 'var(--accent-glow)',
+        gradient: 'linear-gradient(135deg, hsl(220 90% 50%), hsl(230 85% 42%))',
+        shadowColor: 'hsl(220 90% 56% / 0.3)',
         topics: '12 Chapters',
         highlight: 'Most Popular',
     },
@@ -64,8 +64,8 @@ const subjects = [
         description: 'From basic queries to window functions, CTEs, normalization, indexing — with ready-to-run examples.',
         href: '/sql',
         icon: Database,
-        gradient: 'linear-gradient(135deg, var(--sql-color), hsl(0 60% 38%))',
-        shadowColor: 'hsl(0 70% 48% / 0.3)',
+        gradient: 'linear-gradient(135deg, hsl(215 80% 48%), hsl(225 75% 40%))',
+        shadowColor: 'hsl(215 80% 48% / 0.3)',
         topics: '9 Chapters',
         highlight: null,
     },
@@ -138,7 +138,7 @@ export default function Home() {
                         </Button>
                         <Button asChild variant="secondary" size="lg">
                             <Link href="#subjects">
-                                Browse All Subjects
+                                Browse All Subjects <ChevronRight className="w-4 h-4" />
                             </Link>
                         </Button>
                     </div>

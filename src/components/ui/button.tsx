@@ -4,26 +4,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 cursor-pointer",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold no-underline leading-tight text-center transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
         default:
-          "bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-md)] hover:translate-y-[-2px] hover:shadow-[var(--shadow-lg),0_0_30px_var(--primary-glow)] active:translate-y-0 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/15 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity",
+          "bg-[image:var(--gradient-primary)] text-white shadow-[0_4px_14px_hsl(220_90%_56%/0.35),var(--shadow-md)] hover:translate-y-[-2px] hover:shadow-[0_8px_28px_hsl(220_90%_56%/0.45),var(--shadow-lg)] active:translate-y-0 active:shadow-[var(--shadow-sm)] relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-200",
         secondary:
-          "bg-[var(--surface)] text-[var(--text-primary)] border border-[var(--border)] hover:bg-[var(--surface-hover)] hover:border-[var(--border-hover)] hover:translate-y-[-2px] hover:shadow-[var(--shadow-md)] active:translate-y-0",
+          "bg-[var(--surface)] text-[var(--text-primary)] border-2 border-[var(--border)] shadow-[var(--shadow-sm)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:shadow-[0_4px_16px_var(--primary-glow)] hover:translate-y-[-2px] active:translate-y-0 active:shadow-[var(--shadow-sm)]",
         ghost:
           "text-[var(--text-secondary)] hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)]",
         outline:
-          "border border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:border-[var(--border-hover)]",
+          "border-2 border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--primary)] hover:bg-[var(--primary-muted)] hover:text-[var(--primary)]",
         white:
-          "bg-white! text-[hsl(220_90%_40%)]! shadow-[0_4px_20px_hsl(0_0%_0%/0.2)]! hover:shadow-[0_8px_32px_hsl(0_0%_0%/0.3)]! hover:translate-y-[-2px]",
+          "bg-white! text-[hsl(220_90%_40%)]! font-bold! shadow-[0_4px_20px_hsl(0_0%_0%/0.15)]! hover:shadow-[0_8px_32px_hsl(0_0%_0%/0.25)]! hover:translate-y-[-2px] active:translate-y-0",
       },
       size: {
-        default: "px-7 py-3 text-[15px] rounded-[var(--radius-lg)]",
-        sm: "px-4 py-2 text-[13px] rounded-[var(--radius-md)]",
-        lg: "px-9 py-3.5 text-base rounded-[var(--radius-lg)]",
-        icon: "h-9 w-9 rounded-[var(--radius-md)]",
+        default: "h-11 px-7 text-[15px] rounded-xl",
+        sm: "h-9 px-4 text-[13px] rounded-lg",
+        lg: "h-13 px-10 text-base rounded-xl",
+        icon: "h-9 w-9 rounded-lg",
       },
     },
     defaultVariants: {
