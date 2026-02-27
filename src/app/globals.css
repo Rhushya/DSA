@@ -207,7 +207,7 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizeSpeed;
   overflow-x: hidden;
 }
 
@@ -268,7 +268,9 @@ body {
     radial-gradient(ellipse 60% 80% at 90% 90%, hsl(0 85% 50% / 0.06) 0%, transparent 60%),
     radial-gradient(ellipse 50% 50% at 50% 50%, hsl(210 80% 50% / 0.03) 0%, transparent 70%);
   pointer-events: none;
+  will-change: opacity, transform;
   animation: bgShift 20s ease-in-out infinite;
+  contain: strict;
 }
 
 html.light .animated-bg {
@@ -307,6 +309,8 @@ html.light .animated-bg {
   border-radius: 50%;
   animation: particleFloat var(--duration, 15s) var(--delay, 0s) ease-in-out infinite;
   opacity: 0.4;
+  will-change: transform, opacity;
+  contain: strict;
 }
 
 .particle:nth-child(1) {
@@ -330,43 +334,14 @@ html.light .animated-bg {
   --duration: 16s; --delay: -8s;
 }
 
-.particle:nth-child(4) {
-  width: 3px; height: 3px;
-  background: var(--primary);
-  top: 80%; left: 30%;
-  --duration: 20s; --delay: -2s;
-}
-
-.particle:nth-child(5) {
-  width: 4px; height: 4px;
-  background: var(--accent);
-  top: 10%; left: 85%;
-  --duration: 24s; --delay: -6s;
-}
-
-.particle:nth-child(6) {
-  width: 3px; height: 3px;
-  background: var(--secondary);
-  top: 50%; left: 10%;
-  --duration: 19s; --delay: -10s;
-}
-
 @keyframes particleFloat {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
     opacity: 0.3;
   }
-  25% {
-    transform: translate(30px, -40px) scale(1.2);
-    opacity: 0.5;
-  }
   50% {
-    transform: translate(-20px, -60px) scale(0.8);
-    opacity: 0.2;
-  }
-  75% {
-    transform: translate(40px, -20px) scale(1.1);
-    opacity: 0.45;
+    transform: translate(25px, -50px);
+    opacity: 0.5;
   }
 }
 
@@ -382,7 +357,7 @@ header {
   -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--glass-border);
   height: 64px;
-  transition: all var(--transition-smooth);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 header::after {
@@ -435,7 +410,7 @@ header::after {
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: all var(--transition-smooth);
+  transition: color var(--transition-smooth);
   overflow: hidden;
 }
 
@@ -490,7 +465,7 @@ header::after {
   border: 1px solid var(--border);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition-smooth);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-fast);
 }
 
 .theme-toggle:hover {
@@ -516,7 +491,7 @@ header::after {
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition-smooth);
+  transition: color var(--transition-smooth), background-color var(--transition-smooth);
 }
 
 .mobile-menu-toggle:hover {
@@ -545,7 +520,7 @@ header::after {
   height: calc(100vh - 64px);
   overflow-y: auto;
   padding: 1.5rem 0;
-  transition: all var(--transition-smooth);
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth);
 }
 
 .left-sidebar::-webkit-scrollbar {
@@ -593,7 +568,7 @@ header::after {
   font-size: 13.5px;
   font-weight: 450;
   border-radius: var(--radius-sm);
-  transition: all var(--transition-smooth);
+  transition: color var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth), transform var(--transition-fast);
   margin-bottom: 1px;
   position: relative;
   border-left: 2px solid transparent;
@@ -621,7 +596,7 @@ header::after {
   min-width: 0;
   padding: 2.5rem 4rem;
   max-width: none;
-  transition: all var(--transition-smooth);
+  transition: padding var(--transition-smooth);
 }
 
 /* ============================================================
@@ -636,7 +611,7 @@ header::after {
   height: calc(100vh - 64px);
   overflow-y: auto;
   border-left: 1px solid var(--border);
-  transition: all var(--transition-smooth);
+  transition: border-color var(--transition-smooth);
 }
 
 .right-sidebar::-webkit-scrollbar {
@@ -665,7 +640,7 @@ header::after {
   color: var(--text-muted);
   text-decoration: none;
   font-size: 13px;
-  transition: all var(--transition-smooth);
+  transition: color var(--transition-smooth), border-color var(--transition-smooth);
   border-left: 2px solid transparent;
   padding-left: 0.75rem;
   margin-left: -0.75rem;
@@ -754,7 +729,7 @@ header::after {
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
   border-bottom: 1px solid transparent;
 }
 
@@ -848,41 +823,6 @@ header::after {
 }
 
 /* ============================================================
-   CARDS - Premium Glass Effect
-   ============================================================ */
-.card {
-  background: var(--gradient-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  margin-bottom: 1rem;
-  transition: all var(--transition-smooth);
-  box-shadow: var(--shadow-card);
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.06), transparent);
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-html.light .card::before {
-  background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.8), transparent);
-}
-
-/* ============================================================
    BUTTONS - Polished Interactions
    ============================================================ */
 .btn-primary {
@@ -896,7 +836,7 @@ html.light .card::before {
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
-  transition: all var(--transition-smooth);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
   border: none;
   cursor: pointer;
   box-shadow: var(--shadow-md), 0 0 0 0 var(--primary-glow);
@@ -937,7 +877,7 @@ html.light .card::before {
   font-weight: 600;
   font-size: 15px;
   border: 1px solid var(--border);
-  transition: all var(--transition-smooth);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
   cursor: pointer;
   text-decoration: none;
 }
@@ -964,7 +904,6 @@ html.light .card::before {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all var(--transition-smooth);
   box-shadow: var(--shadow-sm);
 }
 
@@ -976,7 +915,6 @@ html.light .card::before {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all var(--transition-smooth);
 }
 
 /* ============================================================
@@ -1007,8 +945,6 @@ html.light .card::before {
   font-size: 13px;
   color: var(--text-secondary);
   box-shadow: var(--shadow-sm);
-  backdrop-filter: var(--glass-blur);
-  transition: all var(--transition-smooth);
   margin-bottom: 2rem;
 }
 
@@ -1220,7 +1156,7 @@ html.light .card::before {
   border-radius: var(--radius-xl);
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition-smooth);
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
@@ -1239,6 +1175,13 @@ html.light .card::before {
   border-color: var(--border-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
+}
+
+/* Promote cards that animate to GPU layer */
+.subject-card,
+.benefit-card,
+.topic-card {
+  transform: translateZ(0);
 }
 
 .subject-highlight {
@@ -1369,10 +1312,13 @@ html.light .subject-card::before {
 /* ============================================================
    BENEFITS
    ============================================================ */
+/* Benefits section - defer rendering until near viewport */
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 .benefit-card {
@@ -1380,7 +1326,7 @@ html.light .subject-card::before {
   background: var(--gradient-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-smooth);
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
   box-shadow: var(--shadow-card);
 }
 
@@ -1400,7 +1346,7 @@ html.light .subject-card::before {
   background: var(--primary-muted);
   color: var(--primary);
   margin-bottom: 1rem;
-  transition: all var(--transition-smooth);
+  transition: background var(--transition-smooth), color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .benefit-card:hover .benefit-icon {
@@ -1426,12 +1372,15 @@ html.light .subject-card::before {
 /* ============================================================
    FAQ
    ============================================================ */
+/* FAQ section - defer rendering until near viewport */
 .faq-list {
   max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .faq-item {
@@ -1439,7 +1388,7 @@ html.light .subject-card::before {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: all var(--transition-smooth);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1613,44 +1562,6 @@ html.light .subject-card::before {
 }
 
 /* ============================================================
-   SECTION DIVIDER (legacy for docs)
-   ============================================================ */
-.section-label {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.section-label h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-}
-
-.section-label p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-}
-.topic-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background: var(--gradient-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-smooth);
-  box-shadow: var(--shadow-card);
-}
-
-.topic-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* ============================================================
    SECTION DIVIDER
    ============================================================ */
 .section-label {
@@ -1682,7 +1593,7 @@ html.light .subject-card::before {
   background: var(--gradient-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-smooth);
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
   box-shadow: var(--shadow-card);
 }
 
@@ -1898,7 +1809,7 @@ html.light .subject-card::before {
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-lg), 0 0 20px var(--primary-glow);
-  transition: all var(--transition-smooth);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .sidebar-mobile-toggle:hover {
@@ -2108,6 +2019,26 @@ html.light .sidebar-section-title {
 /* ============================================================
    ENTRANCE ANIMATIONS
    ============================================================ */
+
+/* Radix Accordion animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -2124,54 +2055,22 @@ html.light .sidebar-section-title {
   to { opacity: 1; }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease forwards;
+  animation: fadeIn 0.35s ease forwards;
   opacity: 0;
 }
 
-.animate-scale-in {
-  animation: scaleIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  opacity: 0;
-}
-
-.delay-1 { animation-delay: 100ms; }
-.delay-2 { animation-delay: 200ms; }
-.delay-3 { animation-delay: 300ms; }
-.delay-4 { animation-delay: 400ms; }
-.delay-5 { animation-delay: 500ms; }
-.delay-6 { animation-delay: 600ms; }
+.delay-1 { animation-delay: 60ms; }
+.delay-2 { animation-delay: 120ms; }
+.delay-3 { animation-delay: 180ms; }
+.delay-4 { animation-delay: 240ms; }
+.delay-5 { animation-delay: 300ms; }
+.delay-6 { animation-delay: 360ms; }
 
 /* ============================================================
    UTILITY - No transition on code

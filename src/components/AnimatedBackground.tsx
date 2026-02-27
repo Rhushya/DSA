@@ -6,9 +6,6 @@ export default function AnimatedBackground() {
                 <div className="particle" />
                 <div className="particle" />
                 <div className="particle" />
-                <div className="particle" />
-                <div className="particle" />
-                <div className="particle" />
             </div>
         </>
     );

@@ -1,9 +1,32 @@
 import Link from 'next/link';
 import {
     Code, Network, Cpu, Database, ArrowRight, BookOpen, Zap, Target,
-    GraduationCap, CheckCircle2, Users, FileText, ChevronRight,
+    GraduationCap, CheckCircle2, FileText, ChevronRight,
     Sparkles, Clock, Shield, TrendingUp
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+const siteUrl = "https://studynotes.vercel.app";
+
+const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "StudyNotes — Free CS Interview Prep Notes",
+    description: "Free, structured study notes for DSA, Computer Networking, OS, and SQL — built for tech interview preparation.",
+    url: siteUrl,
+    mainEntity: {
+        "@type": "ItemList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Data Structures & Algorithms", url: `${siteUrl}/dsa` },
+            { "@type": "ListItem", position: 2, name: "Computer Networking", url: `${siteUrl}/cn` },
+            { "@type": "ListItem", position: 3, name: "Operating Systems", url: `${siteUrl}/os` },
+            { "@type": "ListItem", position: 4, name: "SQL & Databases", url: `${siteUrl}/sql` },
+        ],
+    },
+};
 
 const subjects = [
     {
@@ -81,6 +104,10 @@ const faqs = [
 export default function Home() {
     return (
         <div className="landing-page">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+            />
             {/* ─── HERO ─── */}
             <section className="hero-section">
                 <div className="hero-inner">
@@ -104,12 +131,16 @@ export default function Home() {
                     </p>
 
                     <div className="hero-cta-row animate-fade-in-up delay-3">
-                        <Link href="/dsa" className="btn-primary btn-lg">
-                            Start with DSA <ArrowRight className="w-5 h-5" />
-                        </Link>
-                        <Link href="#subjects" className="btn-secondary btn-lg">
-                            Browse All Subjects
-                        </Link>
+                        <Button asChild size="lg">
+                            <Link href="/dsa">
+                                Start with DSA <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </Button>
+                        <Button asChild variant="secondary" size="lg">
+                            <Link href="#subjects">
+                                Browse All Subjects
+                            </Link>
+                        </Button>
                     </div>
 
                     <div className="hero-trust animate-fade-in-up delay-4">
@@ -136,7 +167,7 @@ export default function Home() {
             {/* ─── SUBJECTS ─── */}
             <section id="subjects" className="section">
                 <div className="section-header animate-fade-in-up">
-                    <span className="section-tag">Subjects</span>
+                    <Badge>Subjects</Badge>
                     <h2 className="section-title">Everything You Need, In One Place</h2>
                     <p className="section-subtitle">Four core CS subjects — curated, concise, and interview-ready.</p>
                 </div>
@@ -174,7 +205,7 @@ export default function Home() {
             {/* ─── HOW IT WORKS ─── */}
             <section className="section section-alt">
                 <div className="section-header animate-fade-in-up">
-                    <span className="section-tag">How It Works</span>
+                    <Badge>How It Works</Badge>
                     <h2 className="section-title">Three Steps to Interview Confidence</h2>
                     <p className="section-subtitle">No complicated setup. Just open, read, and learn.</p>
                 </div>
@@ -196,7 +227,7 @@ export default function Home() {
             {/* ─── BENEFITS ─── */}
             <section className="section">
                 <div className="section-header animate-fade-in-up">
-                    <span className="section-tag">Why StudyNotes</span>
+                    <Badge>Why StudyNotes</Badge>
                     <h2 className="section-title">Built for Students Who Mean Business</h2>
                     <p className="section-subtitle">Every feature exists because it helps you prepare faster and smarter.</p>
                 </div>
@@ -217,19 +248,19 @@ export default function Home() {
             {/* ─── FAQ ─── */}
             <section className="section section-alt">
                 <div className="section-header animate-fade-in-up">
-                    <span className="section-tag">FAQ</span>
+                    <Badge>FAQ</Badge>
                     <h2 className="section-title">Frequently Asked Questions</h2>
                     <p className="section-subtitle">Quick answers to things people usually ask.</p>
                 </div>
 
-                <div className="faq-list">
+                <Accordion type="single" collapsible className="faq-list">
                     {faqs.map((faq, i) => (
-                        <details key={i} className={`faq-item animate-fade-in-up delay-${Math.min(i + 1, 6)}`}>
-                            <summary className="faq-question">{faq.q}</summary>
-                            <p className="faq-answer">{faq.a}</p>
-                        </details>
+                        <AccordionItem key={i} value={`faq-${i}`} className={`animate-fade-in-up delay-${Math.min(i + 1, 6)}`}>
+                            <AccordionTrigger>{faq.q}</AccordionTrigger>
+                            <AccordionContent>{faq.a}</AccordionContent>
+                        </AccordionItem>
                     ))}
-                </div>
+                </Accordion>
             </section>
 
             {/* ─── FINAL CTA ─── */}
@@ -242,9 +273,11 @@ export default function Home() {
                         Pick a subject and start now — it&apos;s completely free.
                     </p>
                     <div className="cta-buttons">
-                        <Link href="/dsa" className="btn-primary btn-lg btn-white">
-                            Start Learning Now <ArrowRight className="w-5 h-5" />
-                        </Link>
+                        <Button asChild variant="white" size="lg">
+                            <Link href="/dsa">
+                                Start Learning Now <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </section>
