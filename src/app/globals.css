@@ -9,53 +9,53 @@
 
 /* ─── DARK MODE (default) ─── */
 :root {
-  --primary: #2563EB;
-  --primary-hover: #3B82F6;
-  --primary-light: #60A5FA;
-  --primary-muted: rgba(37, 99, 235, 0.15);
-  --primary-glow: rgba(96, 165, 250, 0.2);
+  --primary: #3B82F6;
+  --primary-hover: #60A5FA;
+  --primary-light: #93C5FD;
+  --primary-muted: rgba(59, 130, 246, 0.18);
+  --primary-glow: rgba(96, 165, 250, 0.25);
 
-  --secondary: #10B981;
-  --secondary-muted: rgba(16, 185, 129, 0.12);
+  --secondary: #34D399;
+  --secondary-muted: rgba(52, 211, 153, 0.15);
 
-  --background: #0F172A;
-  --background-alt: #1E293B;
-  --surface: #1E293B;
-  --surface-hover: #334155;
-  --surface-active: #475569;
+  --background: #0B1120;
+  --background-alt: #152038;
+  --surface: #152038;
+  --surface-hover: #1E2D4A;
+  --surface-active: #2A3F5F;
 
-  --card-bg: #1E293B;
-  --card-bg-hover: #334155;
-  --sidebar-bg: #0F172A;
+  --card-bg: #152038;
+  --card-bg-hover: #1E2D4A;
+  --sidebar-bg: #0B1120;
 
-  --border: #334155;
-  --border-hover: #475569;
-  --border-active: rgba(59, 130, 246, 0.4);
+  --border: #1E2D4A;
+  --border-hover: #2A3F5F;
+  --border-active: rgba(59, 130, 246, 0.5);
 
-  --text-primary: #F9FAFB;
-  --text-secondary: #94A3B8;
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
   --text-muted: #64748B;
-  --text-inverse: #0F172A;
+  --text-inverse: #0B1120;
 
-  --code-bg: #0F172A;
+  --code-bg: #0B1120;
   --code-text: #E2E8F0;
-  --code-border: #334155;
+  --code-border: #1E2D4A;
 
-  --success: #22C55E;
-  --warning: #F59E0B;
-  --error: #EF4444;
+  --success: #34D399;
+  --warning: #FBBF24;
+  --error: #F87171;
 
   /* Subject colors */
-  --dsa-color: #3B82F6;
-  --cn-color: #6366F1;
-  --os-color: #8B5CF6;
-  --sql-color: #06B6D4;
+  --dsa-color: #60A5FA;
+  --cn-color: #818CF8;
+  --os-color: #A78BFA;
+  --sql-color: #22D3EE;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.45), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
   /* Radius */
   --radius-sm: 6px;
@@ -145,8 +145,9 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  font-weight: 450;
+  line-height: 1.65;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -187,7 +188,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
   border-bottom: 1px solid var(--border);
   height: 64px;
   transition: background var(--transition-base), border-color var(--transition-base);
@@ -214,17 +217,18 @@ header {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 /* Navigation Pills */
 .nav-pill {
   position: relative;
-  padding: 0.4rem 0.875rem;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 0.45rem 1rem;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
@@ -437,32 +441,32 @@ header {
    ============================================================ */
 .content-area h1 {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 1rem;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
   scroll-margin-top: 80px;
 }
 
 .content-area h2 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 650;
+  font-size: 1.65rem;
+  font-weight: 750;
   color: var(--text-primary);
   margin-top: 3rem;
   margin-bottom: 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   scroll-margin-top: 80px;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 .content-area h3 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -470,16 +474,18 @@ header {
 }
 
 .content-area > p:first-of-type {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.8;
+  font-weight: 450;
 }
 
 .content-area p {
   margin-bottom: 1rem;
   color: var(--text-secondary);
   line-height: 1.8;
+  font-size: 1.05rem;
 }
 
 .content-area ul, .content-area ol {
@@ -499,7 +505,7 @@ header {
 
 .content-area strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .content-area a {
@@ -679,12 +685,12 @@ header {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 3.75rem;
+  font-weight: 900;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 .gradient-text {
@@ -696,11 +702,12 @@ html.light .gradient-text {
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto 2rem;
+  font-weight: 450;
 }
 
 .hero-description strong {
@@ -763,8 +770,8 @@ html.light .gradient-text {
 
 .stat-value {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.65rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--primary-light);
 }
@@ -820,20 +827,21 @@ html.light .stat-value {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.15rem;
+  font-weight: 800;
   color: var(--text-primary);
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-bottom: 0.75rem;
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto;
-  line-height: 1.65;
+  line-height: 1.7;
+  font-weight: 450;
 }
 
 
@@ -899,16 +907,17 @@ html.light .subject-highlight {
 
 .subject-card-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   color: var(--text-primary);
 }
 
 .subject-card-desc {
-  font-size: 13.5px;
+  font-size: 14.5px;
   color: var(--text-secondary);
   line-height: 1.65;
   margin: 0;
+  font-weight: 450;
 }
 
 .subject-card-link {
@@ -1101,10 +1110,10 @@ html.light .benefit-icon {
 
 .cta-title {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 900;
   color: white;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
 }
 
 .cta-desc {
@@ -1224,10 +1233,11 @@ html.light .footer-links a:hover {
 }
 
 .page-hero-desc {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
+  font-weight: 450;
 }
 
 
@@ -1807,4 +1817,68 @@ html.light .welcome-toast a { color: var(--primary); }
    ============================================================ */
 pre, code, .hljs, .hljs * {
   transition: none !important;
+}
+
+
+/* ============================================================
+   DARK MODE THEME ENHANCEMENTS
+   ============================================================ */
+html.dark .hero-section {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--background) 60%);
+}
+
+html.dark .hero-section::before {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(59,130,246,0.05) 60%, transparent 100%);
+  filter: blur(80px);
+}
+
+html.dark .subject-card {
+  border-color: rgba(30, 45, 74, 0.8);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(21, 32, 56, 0.8) 100%);
+}
+
+html.dark .subject-card:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.08), var(--shadow-lg);
+}
+
+html.dark .topic-card {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(21, 32, 56, 0.8) 100%);
+  border-color: rgba(30, 45, 74, 0.8);
+}
+
+html.dark .topic-card:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.06), var(--shadow-md);
+}
+
+html.dark .benefit-card {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(21, 32, 56, 0.8) 100%);
+  border-color: rgba(30, 45, 74, 0.8);
+}
+
+html.dark .benefit-card:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.06), var(--shadow-md);
+}
+
+html.dark .stats-bar {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(21, 32, 56, 0.9) 100%);
+  border-color: rgba(30, 45, 74, 0.8);
+}
+
+html.dark .page-hero-icon {
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+html.dark .cta-banner {
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #2563EB 100%);
+}
+
+html.dark .search-modal {
+  background: var(--surface);
+  border-color: rgba(30, 45, 74, 0.8);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(59, 130, 246, 0.06);
 }
