@@ -40,16 +40,16 @@ export default function PDFDownload({ title, description, filename, href }: PDFD
                 </div>
                 <div className="flex-1 min-w-0">
                     <h3 style={{
-                        fontSize: '1rem',
-                        fontWeight: 600,
-                        marginBottom: '0.25rem',
+                        fontSize: '1.1rem',
+                        fontWeight: 650,
+                        marginBottom: '0.3rem',
                         color: 'var(--text-primary)',
                         marginTop: 0,
                     }}>
                         {title}
                     </h3>
                     <p style={{
-                        fontSize: '13.5px',
+                        fontSize: '15px',
                         margin: 0,
                         marginBottom: '0.5rem',
                         color: 'var(--text-secondary)',
@@ -57,7 +57,7 @@ export default function PDFDownload({ title, description, filename, href }: PDFD
                     }}>
                         {description}
                     </p>
-                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0 }}>{filename}</p>
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>{filename}</p>
                 </div>
                 <div className="flex gap-3 flex-shrink-0">
                     <Button onClick={() => setViewerOpen(true)}>

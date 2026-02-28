@@ -235,8 +235,8 @@ html.light header.scrolled {
 /* Navigation Pills */
 .nav-pill {
   position: relative;
-  padding: 0.45rem 1rem;
-  font-size: 16px;
+  padding: 0.5rem 1.15rem;
+  font-size: 17px;
   font-weight: 700;
   color: var(--text-secondary);
   text-decoration: none;
@@ -641,8 +641,8 @@ html.light header.scrolled {
 }
 
 .icon-box-sm {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -693,11 +693,11 @@ html.light header.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 1rem;
+  padding: 0.45rem 1.15rem;
   background: var(--primary-muted);
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-secondary);
   margin-bottom: 1.75rem;
 }
@@ -749,7 +749,7 @@ html.light .gradient-text {
 
 .hero-cta-row {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 2rem;
@@ -760,7 +760,7 @@ html.light .gradient-text {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
   flex-wrap: wrap;
 }
@@ -959,8 +959,8 @@ html.light .subject-highlight {
 .subject-card-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 14.5px;
+  gap: 0.35rem;
+  font-size: 16px;
   font-weight: 700;
   color: var(--primary-light);
   margin-top: 0.25rem;
@@ -1230,7 +1230,7 @@ html.light .benefit-icon {
 }
 
 .footer-copy {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
   margin: 0;
   font-weight: 500;
@@ -1242,7 +1242,7 @@ html.light .benefit-icon {
 }
 
 .footer-links a {
-  font-size: 14.5px;
+  font-size: 15.5px;
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
@@ -1264,8 +1264,8 @@ html.light .footer-links a:hover {
 .topic-card {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  padding: 1.5rem 1.75rem;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
