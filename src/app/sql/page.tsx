@@ -1,4 +1,5 @@
 import LeftSidebar from '@/components/LeftSidebar';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import PDFDownload from '@/components/PDFDownload';
 import { Database, Search, Table, Layers, Key, ArrowDown } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -23,8 +24,9 @@ export default function SQLPage() {
             <LeftSidebar />
             <main className="main-content">
                 <div className="content-area">
+                    <Breadcrumbs items={[{ label: 'SQL & Databases' }]} />
                     <div className="page-hero animate-fade-in-up">
-                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, hsl(215 80% 48%), hsl(225 75% 40%))' }}>
+                        <div className="page-hero-icon" style={{ background: 'var(--sql-color)' }}>
                             <Database className="w-7 h-7" style={{ color: 'white' }} />
                         </div>
                         <div>
@@ -46,7 +48,7 @@ export default function SQLPage() {
                     <div style={{ display: 'grid', gap: '0.75rem' }}>
                         {topics.map((topic, i) => (
                             <div key={i} className={`topic-card animate-fade-in-up delay-${Math.min(i + 2, 6)}`}>
-                                <div className="icon-box-sm" style={{ background: 'linear-gradient(135deg, var(--sql-color), hsl(225 75% 40%))' }}>
+                                <div className="icon-box-sm" style={{ background: 'var(--sql-color)' }}>
                                     <topic.icon className="w-5 h-5" style={{ color: 'white' }} />
                                 </div>
                                 <div>

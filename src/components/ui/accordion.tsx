@@ -14,7 +14,7 @@ const AccordionItem = React.forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      "bg-[image:var(--gradient-card)] border border-[var(--border)] rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-sm)] transition-[border-color,box-shadow] duration-300 data-[state=open]:border-[var(--border-hover)] data-[state=open]:shadow-[var(--shadow-md)]",
+      "bg-[var(--card-bg)] border border-[var(--border)] rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-sm)] transition-[border-color,box-shadow] duration-300 data-[state=open]:border-[var(--border-hover)] data-[state=open]:shadow-[var(--shadow-md)]",
       className
     )}
     {...props}

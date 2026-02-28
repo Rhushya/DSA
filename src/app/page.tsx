@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const siteUrl = "https://studynotes.vercel.app";
@@ -34,8 +33,7 @@ const subjects = [
         description: 'Master arrays, linked lists, trees, graphs, sorting, dynamic programming, backtracking and 50+ coding patterns.',
         href: '/dsa',
         icon: Code,
-        gradient: 'linear-gradient(135deg, hsl(220 90% 50%), hsl(230 85% 42%))',
-        shadowColor: 'hsl(220 90% 56% / 0.3)',
+        color: 'var(--dsa-color)',
         topics: '12 Chapters',
         highlight: 'Most Popular',
     },
@@ -44,8 +42,7 @@ const subjects = [
         description: 'OSI & TCP/IP models, HTTP, DNS, routing protocols, network security — everything you need for interviews.',
         href: '/cn',
         icon: Network,
-        gradient: 'linear-gradient(135deg, var(--secondary), hsl(220 90% 50%))',
-        shadowColor: 'hsl(210 80% 62% / 0.3)',
+        color: 'var(--cn-color)',
         topics: '8 Chapters',
         highlight: null,
     },
@@ -54,8 +51,7 @@ const subjects = [
         description: 'Process management, memory, deadlocks, file systems, scheduling algorithms — all with clear examples.',
         href: '/os',
         icon: Cpu,
-        gradient: 'linear-gradient(135deg, var(--primary), hsl(210 80% 50%))',
-        shadowColor: 'hsl(220 90% 56% / 0.3)',
+        color: 'var(--os-color)',
         topics: '10 Chapters',
         highlight: null,
     },
@@ -64,8 +60,7 @@ const subjects = [
         description: 'From basic queries to window functions, CTEs, normalization, indexing — with ready-to-run examples.',
         href: '/sql',
         icon: Database,
-        gradient: 'linear-gradient(135deg, hsl(215 80% 48%), hsl(225 75% 40%))',
-        shadowColor: 'hsl(215 80% 48% / 0.3)',
+        color: 'var(--sql-color)',
         topics: '9 Chapters',
         highlight: null,
     },
@@ -184,8 +179,7 @@ export default function Home() {
                                 <div
                                     className="icon-box"
                                     style={{
-                                        background: subject.gradient,
-                                        boxShadow: `0 4px 15px ${subject.shadowColor}`,
+                                        background: subject.color,
                                     }}
                                 >
                                     <subject.icon className="w-6 h-6" style={{ color: 'white' }} />

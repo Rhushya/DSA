@@ -13,7 +13,7 @@ export default function PDFDownload({ title, description, filename, href }: PDFD
         <div className="topic-card">
             <div
                 className="icon-box-sm"
-                style={{ background: 'var(--gradient-primary)' }}
+                style={{ background: 'var(--primary)' }}
             >
                 <FileText className="w-5 h-5" style={{ color: 'white' }} />
             </div>

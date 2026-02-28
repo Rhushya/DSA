@@ -1,5 +1,6 @@
 import LeftSidebar from '@/components/LeftSidebar';
 import RightSidebar from '@/components/RightSidebar';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { getBasicContent, getAdvanceContent } from '@/lib/dsa-content';
 import MarkdownContent from '@/components/MarkdownContent';
 import { Code } from 'lucide-react';
@@ -36,8 +37,9 @@ export default function DSAPage() {
 
             <main className="main-content">
                 <div className="content-area">
+                    <Breadcrumbs items={[{ label: 'DSA' }]} />
                     <div className="page-hero animate-fade-in-up">
-                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, hsl(220 90% 50%), hsl(230 85% 42%))' }}>
+                        <div className="page-hero-icon" style={{ background: 'var(--dsa-color)' }}>
                             <Code className="w-7 h-7" style={{ color: 'white' }} />
                         </div>
                         <div>
@@ -52,7 +54,7 @@ export default function DSAPage() {
                     <MarkdownContent content={basicContent} />
 
                     <div className="advance-section" style={{ marginTop: '4rem' }}>
-                        <h1 id="advance-dsa" style={{ color: 'var(--primary)' }}>Advanced Topics</h1>
+                        <h1 id="advance-dsa" style={{ color: 'var(--primary-light)' }}>Advanced Topics</h1>
                         <p>Advanced algorithms and data structures including trees, graphs, and optimization techniques.</p>
                         <MarkdownContent content={advanceContent} />
                     </div>

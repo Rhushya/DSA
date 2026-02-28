@@ -1,4 +1,5 @@
 import LeftSidebar from '@/components/LeftSidebar';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import PDFDownload from '@/components/PDFDownload';
 import { Cpu, MemoryStick, HardDrive, RefreshCw, FileArchive, ArrowDown } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -23,8 +24,9 @@ export default function OSPage() {
             <LeftSidebar />
             <main className="main-content">
                 <div className="content-area">
+                    <Breadcrumbs items={[{ label: 'Operating Systems' }]} />
                     <div className="page-hero animate-fade-in-up">
-                        <div className="page-hero-icon" style={{ background: 'linear-gradient(135deg, var(--os-color), hsl(210 80% 50%))' }}>
+                        <div className="page-hero-icon" style={{ background: 'var(--os-color)' }}>
                             <Cpu className="w-7 h-7" style={{ color: 'white' }} />
                         </div>
                         <div>
@@ -48,7 +50,7 @@ export default function OSPage() {
                     <div style={{ display: 'grid', gap: '0.75rem' }}>
                         {topics.map((topic, i) => (
                             <div key={i} className={`topic-card animate-fade-in-up delay-${Math.min(i + 2, 6)}`}>
-                                <div className="icon-box-sm" style={{ background: 'linear-gradient(135deg, var(--os-color), hsl(210 80% 50%))' }}>
+                                <div className="icon-box-sm" style={{ background: 'var(--os-color)' }}>
                                     <topic.icon className="w-5 h-5" style={{ color: 'white' }} />
                                 </div>
                                 <div>
