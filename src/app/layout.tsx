@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import WelcomeToast from "@/components/WelcomeToast";
+import ScrollAnimations from "@/components/ScrollAnimations";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -107,6 +109,8 @@ export default function RootLayout({
             <body className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
                 <Header />
                 {children}
+                <WelcomeToast />
+                <ScrollAnimations />
             </body>
         </html>
     );

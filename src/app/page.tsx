@@ -160,7 +160,7 @@ export default function Home() {
             </section>
 
             {/* ─── SUBJECTS ─── */}
-            <section id="subjects" className="section">
+            <section id="subjects" className="section reveal-on-scroll">
                 <div className="section-header animate-fade-in-up">
                     <Badge>Subjects</Badge>
                     <h2 className="section-title">Everything You Need, In One Place</h2>
@@ -197,7 +197,7 @@ export default function Home() {
             </section>
 
             {/* ─── HOW IT WORKS ─── */}
-            <section className="section section-alt">
+            <section className="section section-alt reveal-on-scroll">
                 <div className="section-header animate-fade-in-up">
                     <Badge>How It Works</Badge>
                     <h2 className="section-title">Three Steps to Interview Confidence</h2>
@@ -219,7 +219,7 @@ export default function Home() {
             </section>
 
             {/* ─── BENEFITS ─── */}
-            <section className="section">
+            <section className="section reveal-on-scroll">
                 <div className="section-header animate-fade-in-up">
                     <Badge>Why StudyNotes</Badge>
                     <h2 className="section-title">Built for Students Who Mean Business</h2>
@@ -240,7 +240,7 @@ export default function Home() {
             </section>
 
             {/* ─── FAQ ─── */}
-            <section className="section section-alt">
+            <section className="section section-alt reveal-on-scroll">
                 <div className="section-header animate-fade-in-up">
                     <Badge>FAQ</Badge>
                     <h2 className="section-title">Frequently Asked Questions</h2>
@@ -258,7 +258,7 @@ export default function Home() {
             </section>
 
             {/* ─── FINAL CTA ─── */}
-            <section className="cta-banner">
+            <section className="cta-banner reveal-on-scroll">
                 <div className="cta-inner animate-fade-in-up">
                     <GraduationCap className="w-10 h-10" style={{ color: 'white', opacity: 0.9 }} />
                     <h2 className="cta-title">Ready to Start Preparing?</h2>
@@ -283,12 +283,14 @@ export default function Home() {
                         <div className="logo-mark"><span>S</span></div>
                         <span className="logo-text">StudyNotes</span>
                     </div>
-                    <p className="footer-copy">Free CS interview prep notes. Built with Next.js. Open-sourced on GitHub.</p>
+                    <p className="footer-copy">&copy; 2026 RHUSHYA. Free CS interview prep notes. Built with Next.js.</p>
                     <div className="footer-links">
                         <Link href="/dsa">DSA</Link>
                         <Link href="/cn">Networks</Link>
                         <Link href="/os">OS</Link>
                         <Link href="/sql">SQL</Link>
+                        <a href="https://github.com/Rhushya/DSA" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://x.com/RhushyaKC" target="_blank" rel="noopener noreferrer">@RhushyaKC</a>
                     </div>
                 </div>
             </footer>

@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Moon, Sun, Menu } from 'lucide-react';
+import { Moon, Sun, Menu, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import SearchModal from '@/components/SearchModal';
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -21,6 +22,7 @@ export default function Header() {
     const [isDark, setIsDark] = useState(true);
     const [mounted, setMounted] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -36,7 +38,20 @@ export default function Header() {
         }
     }, []);
 
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                setSearchOpen(prev => !prev);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     const toggleTheme = () => {
+        document.documentElement.classList.add('theme-transitioning');
+        setTimeout(() => document.documentElement.classList.remove('theme-transitioning'), 400);
         const newIsDark = !isDark;
         setIsDark(newIsDark);
         localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
@@ -111,8 +126,23 @@ export default function Header() {
                         })}
                     </nav>
 
-                    {/* Right: Theme Toggle */}
-                    <div className="flex items-center gap-3">
+                    {/* Right: Search + Theme Toggle */}
+                    <div className="flex items-center gap-2">
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    onClick={() => setSearchOpen(true)}
+                                    className="theme-toggle"
+                                    aria-label="Search topics"
+                                >
+                                    <Search className="w-4 h-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Search (Ctrl+K)</TooltipContent>
+                        </Tooltip>
+
                         {mounted && (
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -134,6 +164,8 @@ export default function Header() {
                     </div>
                 </div>
             </header>
+
+            <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
         </TooltipProvider>
     );
 }
