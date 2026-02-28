@@ -3,15 +3,35 @@ import PDFDownload from '@/components/PDFDownload';
 import { Database, ArrowDown } from 'lucide-react';
 import type { Metadata } from 'next';
 
+const siteUrl = 'https://studynotes.vercel.app';
+
 export const metadata: Metadata = {
     title: 'SQL & Database Notes — Queries, Joins, Window Functions | StudyNotes',
     description:
-        'Free SQL study notes covering queries, joins, aggregations, window functions, CTEs, and database design. Interview-ready with runnable examples.',
+        'Free SQL study notes and cheat sheets covering queries, joins, aggregations, window functions, CTEs, subqueries, and database design. Downloadable PDFs for interview preparation.',
+    keywords: ['SQL notes', 'database notes', 'SQL queries', 'joins', 'window functions', 'CTEs', 'subqueries', 'database design', 'SQL cheat sheet', 'interview prep', 'placement preparation'],
+    alternates: { canonical: `${siteUrl}/sql` },
+    openGraph: {
+        title: 'SQL & Database Notes — Queries, Joins, Window Functions',
+        description: 'Free SQL study notes and cheat sheets. Covers queries, joins, window functions, CTEs, and more.',
+        url: `${siteUrl}/sql`,
+        type: 'article',
+    },
+};
+
+const sqlBreadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: 'SQL & Databases', item: `${siteUrl}/sql` },
+    ],
 };
 
 export default function SQLPage() {
     return (
         <div className="docs-layout">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sqlBreadcrumbLd) }} />
             <main className="main-content">
                 <div className="content-area">
                     <Breadcrumbs items={[{ label: 'SQL & Databases' }]} />

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Moon, Sun, Menu, Search } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
@@ -23,6 +23,7 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -36,6 +37,16 @@ export default function Header() {
             document.documentElement.classList.add('dark');
             document.documentElement.classList.remove('light');
         }
+    }, []);
+
+    // Scroll detection for header shadow
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // initial check
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
@@ -66,8 +77,8 @@ export default function Header() {
 
     return (
         <TooltipProvider delayDuration={300}>
-            <header>
-                <div className="h-16 px-6 flex items-center justify-between max-w-[1600px] mx-auto">
+            <header className={scrolled ? 'scrolled' : ''}>
+                <div className="h-[68px] px-8 flex items-center justify-between max-w-[1600px] mx-auto">
                     {/* Left: Logo + Mobile Sheet Trigger */}
                     <div className="flex items-center gap-3">
                         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>

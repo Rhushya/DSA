@@ -27,6 +27,53 @@ const homeJsonLd = {
     },
 };
 
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "Are these notes really free?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, 100% free. All study notes, code examples, and downloadable PDFs are available at no cost. No sign-up required."
+            }
+        },
+        {
+            "@type": "Question",
+            name: "What subjects do you cover?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "We cover four core CS subjects: Data Structures & Algorithms (with Python code), Computer Networking (OSI, TCP/IP), Operating Systems (processes, memory), and SQL & Databases (queries, joins, window functions)."
+            }
+        },
+        {
+            "@type": "Question",
+            name: "Are there code examples?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes! The DSA section includes Python implementations for every data structure and algorithm, with detailed explanations, time complexity analysis, and common interview patterns."
+            }
+        },
+        {
+            "@type": "Question",
+            name: "Can I download the notes as PDF?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Computer Networking, Operating Systems, and SQL sections offer downloadable PDF study notes and cheat sheets for offline access."
+            }
+        },
+        {
+            "@type": "Question",
+            name: "Is this suitable for placement preparation?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Absolutely. The content is interview-focused, covering the most frequently asked topics in tech placements at top companies."
+            }
+        }
+    ]
+};
+
 const subjects = [
     {
         title: 'Data Structures & Algorithms',
@@ -102,6 +149,10 @@ export default function Home() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
             />
             {/* ─── HERO ─── */}
             <section className="hero-section">

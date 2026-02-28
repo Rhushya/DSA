@@ -3,15 +3,35 @@ import PDFDownload from '@/components/PDFDownload';
 import { Cpu, ArrowDown } from 'lucide-react';
 import type { Metadata } from 'next';
 
+const siteUrl = 'https://studynotes.vercel.app';
+
 export const metadata: Metadata = {
     title: 'Operating Systems Notes — Processes, Memory, Deadlocks | StudyNotes',
     description:
-        'Free operating systems study notes covering process management, memory management, deadlocks, file systems and scheduling. Interview-ready.',
+        'Free operating systems study notes covering process management, memory management, deadlocks, file systems, scheduling, and synchronization. Downloadable PDF for placement preparation.',
+    keywords: ['operating systems notes', 'OS notes', 'process management', 'memory management', 'deadlocks', 'file systems', 'scheduling', 'interview prep', 'placement preparation'],
+    alternates: { canonical: `${siteUrl}/os` },
+    openGraph: {
+        title: 'Operating Systems Notes — Processes, Memory, Deadlocks',
+        description: 'Free OS study notes covering processes, memory, deadlocks, and more. Downloadable PDF included.',
+        url: `${siteUrl}/os`,
+        type: 'article',
+    },
+};
+
+const osBreadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: 'Operating Systems', item: `${siteUrl}/os` },
+    ],
 };
 
 export default function OSPage() {
     return (
         <div className="docs-layout">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(osBreadcrumbLd) }} />
             <main className="main-content">
                 <div className="content-area">
                     <Breadcrumbs items={[{ label: 'Operating Systems' }]} />

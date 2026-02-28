@@ -46,6 +46,12 @@ export const metadata: Metadata = {
         "SQL notes",
         "tech interview",
         "placement preparation",
+        "coding interview",
+        "Python DSA",
+        "free CS notes",
+        "computer science notes",
+        "GATE preparation",
+        "programming notes",
     ],
     authors: [{ name: "StudyNotes" }],
     openGraph: {

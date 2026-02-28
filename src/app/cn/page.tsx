@@ -3,15 +3,35 @@ import PDFDownload from '@/components/PDFDownload';
 import { Network, ArrowDown } from 'lucide-react';
 import type { Metadata } from 'next';
 
+const siteUrl = 'https://studynotes.vercel.app';
+
 export const metadata: Metadata = {
     title: 'Computer Networking Notes — OSI, TCP/IP, Protocols | StudyNotes',
     description:
-        'Free computer networking study notes covering the OSI model, TCP/IP, HTTP, DNS, routing protocols and network security. Interview-ready.',
+        'Free computer networking study notes covering the OSI model, TCP/IP, HTTP, DNS, routing protocols and network security. Downloadable PDF for interview preparation.',
+    keywords: ['computer networking notes', 'OSI model', 'TCP/IP', 'HTTP', 'DNS', 'routing protocols', 'network security', 'CN notes', 'interview prep', 'placement preparation'],
+    alternates: { canonical: `${siteUrl}/cn` },
+    openGraph: {
+        title: 'Computer Networking Notes — OSI, TCP/IP, Protocols',
+        description: 'Free CN study notes covering OSI, TCP/IP, HTTP, DNS, and more. Downloadable PDF included.',
+        url: `${siteUrl}/cn`,
+        type: 'article',
+    },
+};
+
+const cnBreadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: 'Computer Networking', item: `${siteUrl}/cn` },
+    ],
 };
 
 export default function CNPage() {
     return (
         <div className="docs-layout">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(cnBreadcrumbLd) }} />
             <main className="main-content">
                 <div className="content-area">
                     <Breadcrumbs items={[{ label: 'Computer Networking' }]} />
