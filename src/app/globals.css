@@ -188,8 +188,8 @@ header {
   top: 0;
   z-index: 100;
   background: color-mix(in srgb, var(--surface) 92%, transparent);
-  backdrop-filter: blur(20px) saturate(1.8);
-  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
   border-bottom: 1px solid var(--border);
   height: 68px;
   transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
@@ -673,7 +673,7 @@ html.light header.scrolled {
   height: 600px;
   border-radius: 50%;
   background: var(--primary-glow);
-  filter: blur(120px);
+  filter: blur(60px);
   pointer-events: none;
   animation: heroGlow 6s ease-in-out infinite;
 }
@@ -1611,36 +1611,7 @@ header,
   z-index: -1;
 }
 
-/* Additional ambient glow orbs for depth */
-.section:nth-child(even)::before {
-  content: '';
-  position: absolute;
-  bottom: -40px;
-  right: -60px;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
-  animation: floatOrb 12s ease-in-out infinite;
-  z-index: -1;
-}
-
-.section:nth-child(odd)::after {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: -40px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%);
-  filter: blur(35px);
-  pointer-events: none;
-  animation: floatOrbAlt 14s ease-in-out infinite;
-  z-index: -1;
-}
+/* Removed per-section glow orbs — canvas handles ambient light */
 
 /* Floating gradient blobs */
 @keyframes floatBlob {
@@ -1650,9 +1621,7 @@ header,
   75% { transform: translate(15px, 25px) scale(1.05) rotate(1deg); }
 }
 
-.hero-section::before {
-  animation: floatBlob 8s ease-in-out infinite;
-}
+
 
 
 /* ============================================================
@@ -1670,18 +1639,18 @@ header,
 .animate-accordion-up { animation: accordion-up 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(28px); filter: blur(4px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0px); }
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; filter: blur(2px); }
-  to { opacity: 1; filter: blur(0px); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.92); filter: blur(4px); }
-  to { opacity: 1; transform: scale(1); filter: blur(0px); }
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes slideInLeft {
@@ -1744,15 +1713,12 @@ html.theme-transitioning *::after {
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  filter: blur(3px);
-  will-change: opacity, transform, filter;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0px);
 }
 
 /* Staggered children inside revealed sections */
@@ -2085,7 +2051,7 @@ html.dark .hero-section::before {
   width: 700px;
   height: 700px;
   background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(59,130,246,0.05) 60%, transparent 100%);
-  filter: blur(80px);
+  filter: blur(50px);
 }
 
 html.dark .subject-card {
@@ -2178,9 +2144,18 @@ button, a, input, select, textarea, [role="button"] {
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* GPU-accelerated smooth transforms */
-.subject-card, .step-card, .benefit-card, .topic-card, .stat-item, .nav-pill, .icon-box, .logo-mark {
+/* GPU hints only on hover to avoid excess layers */
+.subject-card:hover, .step-card:hover, .benefit-card:hover, .topic-card:hover {
   will-change: transform;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animated-bg-canvas { display: none; }
+  .reveal-on-scroll { opacity: 1; transform: none; }
 }

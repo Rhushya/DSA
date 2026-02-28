@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
-import WelcomeToast from "@/components/WelcomeToast";
 import ScrollAnimations from "@/components/ScrollAnimations";
-import AnimatedBackground from "@/components/AnimatedBackground";
+
+const AnimatedBackground = dynamic(() => import("@/components/AnimatedBackground"));
+const WelcomeToast = dynamic(() => import("@/components/WelcomeToast"));
 
 const inter = Inter({
     variable: "--font-inter",
@@ -15,7 +17,7 @@ const inter = Inter({
 const poppins = Poppins({
     variable: "--font-poppins",
     subsets: ["latin"],
-    weight: ["500", "600", "700", "800"],
+    weight: ["600", "700"],
     display: "swap",
 });
 

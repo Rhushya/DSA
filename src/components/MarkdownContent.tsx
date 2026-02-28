@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo, memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -18,34 +19,37 @@ function cleanContent(content: string): string {
         .replace(/`\d+\s+[A-Z]+\/[^`]+`/g, '');
 }
 
-export default function MarkdownContent({ content }: MarkdownContentProps) {
-    const cleanedContent = cleanContent(content);
+const remarkPlugins = [remarkGfm];
+const rehypePlugins = [rehypeHighlight];
+
+const headingComponent = (Tag: 'h1' | 'h2' | 'h3') => {
+    const Component = ({ children, ...props }: React.ComponentProps<'h1'>) => {
+        const text = children?.toString() || '';
+        const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        return <Tag id={id} {...props}>{children}</Tag>;
+    };
+    Component.displayName = `Heading_${Tag}`;
+    return Component;
+};
+
+const mdComponents = {
+    h1: headingComponent('h1'),
+    h2: headingComponent('h2'),
+    h3: headingComponent('h3'),
+};
+
+export default memo(function MarkdownContent({ content }: MarkdownContentProps) {
+    const cleanedContent = useMemo(() => cleanContent(content), [content]);
 
     return (
         <div className="markdown-body">
             <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight]}
-                components={{
-                    h1: ({ children, ...props }) => {
-                        const text = children?.toString() || '';
-                        const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-                        return <h1 id={id} {...props}>{children}</h1>;
-                    },
-                    h2: ({ children, ...props }) => {
-                        const text = children?.toString() || '';
-                        const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-                        return <h2 id={id} {...props}>{children}</h2>;
-                    },
-                    h3: ({ children, ...props }) => {
-                        const text = children?.toString() || '';
-                        const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-                        return <h3 id={id} {...props}>{children}</h3>;
-                    },
-                }}
+                remarkPlugins={remarkPlugins}
+                rehypePlugins={rehypePlugins}
+                components={mdComponents}
             >
                 {cleanedContent}
             </ReactMarkdown>
         </div>
     );
-}
+});
