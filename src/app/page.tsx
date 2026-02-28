@@ -290,6 +290,7 @@ export default function Home() {
                         <Link href="/os">OS</Link>
                         <Link href="/sql">SQL</Link>
                         <a href="https://github.com/Rhushya/DSA" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://rhushya.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Portfolio</a>
                         <a href="https://x.com/RhushyaKC" target="_blank" rel="noopener noreferrer">@RhushyaKC</a>
                     </div>
                 </div>

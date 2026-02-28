@@ -145,10 +145,9 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 450;
-  line-height: 1.65;
-  min-height: 100vh;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -217,8 +216,8 @@ header {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
+  font-weight: 900;
+  font-size: 1.35rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
@@ -227,8 +226,8 @@ header {
 .nav-pill {
   position: relative;
   padding: 0.45rem 1rem;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
@@ -335,8 +334,8 @@ header {
 
 .sidebar-section-title {
   font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12.5px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -350,8 +349,8 @@ header {
   padding: 0.45rem 0.75rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 450;
+  font-size: 15px;
+  font-weight: 500;
   border-radius: var(--radius-sm);
   transition: color var(--transition-base), background var(--transition-base);
   margin-bottom: 1px;
@@ -368,7 +367,7 @@ header {
   color: var(--primary);
   background: var(--primary-muted);
   border-left-color: var(--primary);
-  font-weight: 550;
+  font-weight: 650;
 }
 
 /* ============================================================
@@ -402,8 +401,8 @@ header {
 
 .right-sidebar-title {
   font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12.5px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -417,7 +416,7 @@ header {
   padding: 0.35rem 0;
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   transition: color var(--transition-base);
   border-left: 2px solid transparent;
   padding-left: 0.75rem;
@@ -432,7 +431,7 @@ header {
 .toc-link.active {
   color: var(--primary);
   border-left-color: var(--primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -441,8 +440,8 @@ header {
    ============================================================ */
 .content-area h1 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.85rem;
+  font-weight: 900;
   color: var(--text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
@@ -452,8 +451,8 @@ header {
 
 .content-area h2 {
   font-family: var(--font-heading);
-  font-size: 1.65rem;
-  font-weight: 750;
+  font-size: 1.9rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -465,8 +464,8 @@ header {
 
 .content-area h3 {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 750;
   color: var(--text-primary);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -474,18 +473,19 @@ header {
 }
 
 .content-area > p:first-of-type {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.8;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .content-area p {
   margin-bottom: 1rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .content-area ul, .content-area ol {
@@ -497,6 +497,8 @@ header {
 .content-area li {
   margin-bottom: 0.5rem;
   line-height: 1.7;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .content-area li::marker {
@@ -505,13 +507,13 @@ header {
 
 .content-area strong {
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .content-area a {
   color: var(--primary-light);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition-fast);
 }
@@ -531,8 +533,8 @@ header {
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
   font-family: var(--font-code);
-  font-size: 13.5px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
   overflow-x: auto;
   color: var(--code-text);
   position: relative;
@@ -557,10 +559,10 @@ header {
 .content-area :not(pre) > code {
   background: var(--primary-muted);
   color: var(--primary-light);
-  padding: 0.15rem 0.45rem;
+  padding: 0.2rem 0.5rem;
   border-radius: var(--radius-sm);
-  font-size: 0.88em;
-  font-weight: 500;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 
@@ -570,7 +572,7 @@ header {
 .content-area table {
   width: 100%;
   margin: 1.5rem 0;
-  font-size: 14px;
+  font-size: 15.5px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -582,11 +584,11 @@ header {
   background: var(--surface-hover);
   color: var(--text-primary);
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   padding: 0.75rem 1rem;
   border-bottom: 2px solid var(--border);
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -665,7 +667,7 @@ header {
   background: var(--primary-muted);
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   margin-bottom: 1.75rem;
 }
@@ -685,7 +687,7 @@ header {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.75rem;
+  font-size: 4.25rem;
   font-weight: 900;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
@@ -702,17 +704,17 @@ html.light .gradient-text {
 }
 
 .hero-description {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  max-width: 580px;
+  max-width: 620px;
   margin: 0 auto 2rem;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .hero-description strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero-cta-row {
@@ -728,7 +730,7 @@ html.light .gradient-text {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
   flex-wrap: wrap;
 }
@@ -770,7 +772,7 @@ html.light .gradient-text {
 
 .stat-value {
   font-family: var(--font-heading);
-  font-size: 1.65rem;
+  font-size: 1.85rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--primary-light);
@@ -781,10 +783,10 @@ html.light .stat-value {
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--text-muted);
   margin-top: 0.15rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -792,7 +794,7 @@ html.light .stat-value {
    LANDING PAGE SECTIONS
    ============================================================ */
 .landing-page {
-  min-height: calc(100vh - 64px);
+  /* no min-height — page ends where content ends */
 }
 
 .section {
@@ -827,8 +829,8 @@ html.light .stat-value {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.15rem;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 900;
   color: var(--text-primary);
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -836,12 +838,12 @@ html.light .stat-value {
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
-  max-width: 580px;
+  max-width: 620px;
   margin: 0 auto;
   line-height: 1.7;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 
@@ -879,8 +881,8 @@ html.light .stat-value {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--primary-light);
@@ -900,32 +902,32 @@ html.light .subject-highlight {
 }
 
 .subject-topics {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--text-muted);
 }
 
 .subject-card-title {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 900;
   color: var(--text-primary);
 }
 
 .subject-card-desc {
-  font-size: 14.5px;
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .subject-card-link {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14.5px;
+  font-weight: 700;
   color: var(--primary-light);
   margin-top: 0.25rem;
   transition: gap var(--transition-base);
@@ -972,8 +974,8 @@ html.light .subject-card-link {
 
 .step-number {
   font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 12.5px;
+  font-weight: 900;
   color: var(--primary-light);
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
@@ -998,17 +1000,18 @@ html.light .step-number {
 
 .step-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .step-desc {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 280px;
+  line-height: 1.7;
+  max-width: 300px;
+  font-weight: 500;
 }
 
 
@@ -1060,17 +1063,18 @@ html.light .benefit-icon {
 
 .benefit-title {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.4rem;
 }
 
 .benefit-desc {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
+  font-weight: 500;
 }
 
 
@@ -1110,17 +1114,18 @@ html.light .benefit-icon {
 
 .cta-title {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: 2.6rem;
   font-weight: 900;
   color: white;
   letter-spacing: -0.03em;
 }
 
 .cta-desc {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.65;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
   margin: 0;
+  font-weight: 500;
 }
 
 .cta-buttons {
@@ -1154,9 +1159,10 @@ html.light .benefit-icon {
 }
 
 .footer-copy {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
   margin: 0;
+  font-weight: 500;
 }
 
 .footer-links {
@@ -1165,8 +1171,8 @@ html.light .benefit-icon {
 }
 
 .footer-links a {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -1233,11 +1239,11 @@ html.light .footer-links a:hover {
 }
 
 .page-hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 
@@ -1248,7 +1254,7 @@ html.light .footer-links a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
@@ -1274,7 +1280,7 @@ html.light .breadcrumbs a:hover {
 
 .breadcrumbs .current {
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -1335,12 +1341,12 @@ html.light .breadcrumbs a:hover {
 @media (max-width: 640px) {
   header { height: 56px; }
   .main-content { padding: 1.5rem 1rem; }
-  .content-area h1 { font-size: 1.75rem; }
-  .content-area h2 { font-size: 1.25rem; }
+  .content-area h1 { font-size: 2rem; }
+  .content-area h2 { font-size: 1.45rem; }
   .subject-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .hero-title { font-size: 2.25rem; }
+  .hero-title { font-size: 2.65rem; }
   .section { padding: 3rem 1.25rem; }
-  .section-title { font-size: 1.5rem; }
+  .section-title { font-size: 1.75rem; }
 
   .stats-bar {
     flex-wrap: wrap;
@@ -1355,7 +1361,7 @@ html.light .breadcrumbs a:hover {
   .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
 
   .benefits-grid { grid-template-columns: 1fr; }
-  .cta-title { font-size: 1.5rem; }
+  .cta-title { font-size: 1.75rem; }
 
   .footer-inner {
     flex-direction: column;
