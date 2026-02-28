@@ -59,14 +59,14 @@ export default function PDFDownload({ title, description, filename, href }: PDFD
                     </p>
                     <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0 }}>{filename}</p>
                 </div>
-                <div className="flex gap-2 flex-shrink-0">
-                    <Button size="sm" onClick={() => setViewerOpen(true)}>
-                        <ExternalLink className="w-4 h-4" />
+                <div className="flex gap-3 flex-shrink-0">
+                    <Button onClick={() => setViewerOpen(true)}>
+                        <ExternalLink className="w-5 h-5" />
                         <span>View</span>
                     </Button>
-                    <Button asChild variant="secondary" size="sm">
+                    <Button asChild variant="secondary">
                         <a href={href} download={filename}>
-                            <Download className="w-4 h-4" />
+                            <Download className="w-5 h-5" />
                             <span>Download</span>
                         </a>
                     </Button>

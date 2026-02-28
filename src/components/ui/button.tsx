@@ -20,10 +20,10 @@ const buttonVariants = cva(
           "bg-white! text-[var(--primary)]! font-bold! shadow-[var(--shadow-md)]! hover:shadow-[var(--shadow-lg)]! hover:translate-y-[-1px] active:translate-y-0",
       },
       size: {
-        default: "h-11 px-7 text-[15px] rounded-lg",
-        sm: "h-9 px-4 text-[13px] rounded-md",
-        lg: "h-12 px-10 text-base rounded-lg",
-        icon: "h-9 w-9 rounded-md",
+        default: "h-12 px-8 text-base rounded-xl",
+        sm: "h-11 px-6 text-[15px] rounded-xl",
+        lg: "h-14 px-12 text-lg rounded-2xl",
+        icon: "h-10 w-10 rounded-xl",
       },
     },
     defaultVariants: {

@@ -138,6 +138,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
   -webkit-text-size-adjust: 100%;
+  zoom: 0.8;
 }
 
 body {
@@ -300,7 +301,8 @@ header {
    ============================================================ */
 .docs-layout {
   display: flex;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh / 0.8 - 64px);
+  overflow: hidden;
 }
 
 /* ============================================================
@@ -373,6 +375,8 @@ header {
   min-width: 0;
   padding: 2.5rem 4rem;
   max-width: none;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ============================================================
@@ -1173,12 +1177,12 @@ html.light .footer-links a:hover {
    ============================================================ */
 .topic-card {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   box-shadow: var(--shadow-xs);
 }
