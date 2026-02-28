@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import WelcomeToast from "@/components/WelcomeToast";
 import ScrollAnimations from "@/components/ScrollAnimations";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -112,6 +113,7 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+                <AnimatedBackground />
                 <Header />
                 {children}
                 <WelcomeToast />
