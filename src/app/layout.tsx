@@ -7,6 +7,7 @@ import ScrollAnimations from "@/components/ScrollAnimations";
 
 const AnimatedBackground = dynamic(() => import("@/components/AnimatedBackground"));
 const WelcomeToast = dynamic(() => import("@/components/WelcomeToast"));
+const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"));
 
 const inter = Inter({
     variable: "--font-inter",
@@ -124,6 +125,7 @@ export default function RootLayout({
                 <AnimatedBackground />
                 <Header />
                 {children}
+                <ScrollToTop />
                 <WelcomeToast />
                 <ScrollAnimations />
             </body>

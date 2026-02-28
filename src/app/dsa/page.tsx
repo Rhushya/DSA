@@ -1,6 +1,7 @@
 import LeftSidebar from '@/components/LeftSidebar';
 import RightSidebar from '@/components/RightSidebar';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import QuickNav from '@/components/QuickNav';
 import { getBasicContent, getAdvanceContent } from '@/lib/dsa-content';
 import MarkdownContent from '@/components/MarkdownContent';
 import { Code } from 'lucide-react';
@@ -82,6 +83,7 @@ export default function DSAPage() {
             </main>
 
             <RightSidebar items={tocItems} />
+            <QuickNav items={tocItems} />
         </div>
     );
 }

@@ -2,7 +2,8 @@ import Link from 'next/link';
 import {
     Code, Network, Cpu, Database, ArrowRight, BookOpen, Zap, Target,
     GraduationCap, CheckCircle2, FileText, ChevronRight,
-    Sparkles, Clock, Shield, TrendingUp
+    Sparkles, Clock, Shield, TrendingUp, Hash, GitBranch, Layers,
+    Binary, Search as SearchIcon
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -135,6 +136,18 @@ const benefits = [
     { icon: Sparkles, title: 'Always Up to Date', desc: 'Content is regularly updated to match the latest interview trends and patterns.' },
 ];
 
+const popularTopics = [
+    { title: 'Arrays', href: '/dsa#arrays', icon: Layers, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'Trees', href: '/dsa#trees', icon: GitBranch, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'Dynamic Programming', href: '/dsa#dynamic-programming', icon: TrendingUp, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'Graphs', href: '/dsa#graphs', icon: Hash, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'Binary Search', href: '/dsa#binary-search', icon: Binary, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'Sorting', href: '/dsa#sorting', icon: Code, subject: 'DSA', color: 'var(--dsa-color)' },
+    { title: 'CN Notes', href: '/cn', icon: Network, subject: 'CN', color: 'var(--cn-color)' },
+    { title: 'OS Notes', href: '/os', icon: Cpu, subject: 'OS', color: 'var(--os-color)' },
+    { title: 'SQL Notes', href: '/sql', icon: Database, subject: 'SQL', color: 'var(--sql-color)' },
+];
+
 const faqs = [
     { q: 'Is StudyNotes completely free?', a: 'Yes — all notes, code examples, and PDF downloads are 100% free. No sign-ups, no paywalls.' },
     { q: 'What subjects are covered?', a: 'We cover four core CS subjects: Data Structures & Algorithms, Computer Networking, Operating Systems, and SQL & Databases.' },
@@ -244,6 +257,37 @@ export default function Home() {
                             </span>
                         </Link>
                     ))}
+                </div>
+            </section>
+
+            {/* ─── POPULAR TOPICS QUICK NAV ─── */}
+            <section className="section reveal-on-scroll">
+                <div className="section-header animate-fade-in-up">
+                    <Badge>Quick Jump</Badge>
+                    <h2 className="section-title">Popular Topics</h2>
+                    <p className="section-subtitle">Jump straight to the most-studied interview topics.</p>
+                </div>
+
+                <div className="popular-topics-grid">
+                    {popularTopics.map((topic, idx) => (
+                        <Link
+                            key={topic.href}
+                            href={topic.href}
+                            className={`popular-topic-chip animate-fade-in-up delay-${Math.min(idx + 1, 6)}`}
+                        >
+                            <div className="popular-topic-icon" style={{ background: topic.color }}>
+                                <topic.icon className="w-4 h-4" style={{ color: 'white' }} />
+                            </div>
+                            <span className="popular-topic-name">{topic.title}</span>
+                            <span className="popular-topic-badge">{topic.subject}</span>
+                            <ChevronRight className="w-3.5 h-3.5 popular-topic-arrow" />
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="keyboard-hint animate-fade-in delay-4">
+                    <SearchIcon className="w-4 h-4" />
+                    <span>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to search all topics instantly</span>
                 </div>
             </section>
 
